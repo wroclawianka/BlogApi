@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Angular Based Blog</title>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body>
+    <div id="blogPage" ng-app="firstBlog">
+        <div id="main" class="container" ng-controller="MainController">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header page-scroll">
+                        <p class="navbar-brand blog-name" href="#">{{ title }}</p>
+                        <p class="navbar-brand">{{ subtitle }}</p>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active">
+                                <a href="#">Main Page<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-scroll">
+                                <a href="#about">About</a>
+                            </li>
+                            <li class="page-scroll">
+                                <a href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+            <div class="headers text-center">
+            </div>
+            <div class="container text-center col-lg-10 col-md-10" ng-controller="PostsControler">
+                <div class="posts-list" ng-repeat="post in posts">
+                    <post-info info="post"></post-info>
+                </div>
+            </div>
+            <div id="about" class="container text-center col-lg-2 col-md-2">
+                <div class="col-sm-12">
+                    <h3>About me</h3>
+                    <p>Here is a place for a few words about me myself and I. I am great person and the best programmer ion the world</p>
+                </div>
+                <div class="contact">
+                    <h4>Find me</h4>
+                    <p>on GitHub</p>
+                    <p>on LinkedIn</p>
+                </div>
+                <div class="archival-posts">
+                    <h4>My Archival Posts</h4>
+                    <p>December 2017</p>
+                    <p>November 2017</p>
+                    <p>October 2017</p>
+                    <p>September 2017</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Modules -->
+    <script src="js/app.js "></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js "></script>
+    <script src="js/controllers/PostsControler.js "></script>
+
+    <!-- Directives -->
+    <!-- <script src="js/directives/postInfo.js "></script> -->
+    <!-- temporary solution for issue: angular.js:12587 Failed to load file:///C.../js/directives/postInfo.html: 
+        Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https. -->
+    <script>
+        app.directive('postInfo', function() {
+            return {
+                restrict: 'E',
+                scope: {
+                    info: '='
+                },
+                // templateUrl: 'js/directives/postInfo.html'
+                template: '<div class="post ">' +
+                    '<h3>{{ info.Title }}</h3>' +
+                    '<p>{{ info.Text }}</p>' +
+                    '<img class="img-responsive " src=".\\images\\{{ info.Picture }} " alt="{{ info.Title }} ">' +
+                    '</div>'
+            };
+        });
+    </script>
+</body>
+
+</html>

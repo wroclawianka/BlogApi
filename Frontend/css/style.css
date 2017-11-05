@@ -1,0 +1,32 @@
+#blogPage {
+    align-self: center;
+    align-content: center;
+    align-items: center;
+}
+
+.navbar {
+    color: black;
+    background: white;
+    border-width: 2px;
+}
+
+.blog-name {
+    font-size: 2.5em;
+}
+
+#about>div {
+    padding-bottom: 1.5em;
+}
+
+.headers {
+    margin-top: 6em;
+    margin-bottom: 3em;
+}
+
+.post {
+    padding-bottom: 2em;
+}
+
+.post>* {
+    padding: 0.8em;
+}
