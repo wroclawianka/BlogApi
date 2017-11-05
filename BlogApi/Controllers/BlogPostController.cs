@@ -27,11 +27,12 @@ namespace BlogApi.Controllers
                 }
             };
         }
+        [Route("api/blogpost/get")]
         public IHttpActionResult Get()
         {
             return Json(this.posts);
         }
-
+        [Route("api/blogpost/get/{id}")]
         public IHttpActionResult Get(int id)
         {
             return Json(posts.Single(x => x.Id == id));
