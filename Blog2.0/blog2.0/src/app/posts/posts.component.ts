@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PostService }         from '../post.service';
 import { Post } from '../post';
 
 @Component({
- selector: 'blog-posts',
+ selector: 'app-posts',
  templateUrl: 'posts.component.html',
  styleUrls: ['posts.component.css']
 })
@@ -13,10 +14,10 @@ selectedPost: Post;
 
  constructor(private postService: PostService) { }
 
- /*function to retrieve the posts from the service */
  getPosts(): void {
-   this.postService.getPosts().then(posts => this.posts = posts);
- }
+  this.postService.getPosts()
+      .subscribe(heroes => this.posts = heroes);
+}
 
  ngOnInit(): void {
    this.getPosts();

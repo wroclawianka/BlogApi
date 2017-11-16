@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+
 import { Post } from './post';
 import { POSTS } from './mock-posts';
 
 @Injectable()
 export class PostService {
 
-    getPost(id: number): Promise<Post> {
-        debugger;
-        return this.getPosts()
-            .then(posts => posts.find(post => post.id === id));
-    }
-
-    getPosts(): Promise<Post[]> {
-        return Promise.resolve(POSTS)
+    getPosts(): Observable<Post[]> {
+        return of(POSTS)
     };
 }

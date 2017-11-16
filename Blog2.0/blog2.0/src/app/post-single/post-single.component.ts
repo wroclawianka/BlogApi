@@ -7,7 +7,7 @@ import { PostService } from '../post.service';
 import { Post } from '../post';
 
 @Component({
-  selector: 'post-single',
+  selector: 'app-post-single',
   templateUrl: 'post-single.component.html'
 })
 export class PostSingleComponent implements OnInit {
@@ -17,9 +17,10 @@ export class PostSingleComponent implements OnInit {
   private location: Location;
 
   ngOnInit(): void {
-    this.route.paramMap
-      .switchMap((params: ParamMap) => this.postService.getPost(+params.get('id')))
-      .subscribe(post => this.post = post);
+    // this.route.paramMap
+    //   .switchMap((params: ParamMap) => this.postService.getPost(+params.get('id')))
+    //   .subscribe(post => this.post = post);
   }
+
 }
 
