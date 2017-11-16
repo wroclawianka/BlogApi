@@ -1,0 +1,17 @@
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+}
+
+.posts {
+    width: 15em;
+}
+
+.posts li.selected:hover {
+    background-color: #BBD8DC !important;
+}
+
+.posts li:hover {
+    color: #607D8B;
+    left: .1em;
+}
