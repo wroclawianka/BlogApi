@@ -7,6 +7,7 @@ import { AppComponent }        from './app.component';
 import { PostsComponent } from './posts/posts.component'
 import { PostSingleComponent } from './post-single/post-single.component';
 import { PostService } from './post.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { PostService } from './post.service';
         path: 'post/:id',
         component: PostSingleComponent
       },
-    ])
+    ]),
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
