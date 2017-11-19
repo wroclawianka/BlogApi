@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 
 import { Post } from './post';
-import { POSTS } from './mock-posts';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable()
 export class PostService {
+    private response = [];
+    private postsUrl = 'api/posts';
+
+    constructor(
+        private http: HttpClient) {
+    }
 
     getPosts(): Observable<Post[]> {
-        return of(POSTS)
-    };
+        return this.http.get<Post[]>(this.postsUrl);
+    }
 
     getPost(id: number): Observable<Post> {
-        return of(POSTS.find(post => post.id === id));
+        const url = `${this.postsUrl}/${id}`;
+        return this.http.get<Post>(url);
     }
 }
