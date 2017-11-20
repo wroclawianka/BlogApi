@@ -27,6 +27,8 @@ namespace BlogApi.Controllers
                 }
             };
         }
+
+        [Route("BlogPost/Get")]
         public IHttpActionResult Get()
         {
             return Json(this.posts);
