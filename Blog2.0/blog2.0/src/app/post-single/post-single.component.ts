@@ -4,27 +4,28 @@ import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 import { PostService } from '../post.service';
-import { Post } from '../post';
+import { APIPost } from '../apiPost';
 
 @Component({
   selector: 'app-post-single',
   templateUrl: 'post-single.component.html'
 })
 export class PostSingleComponent implements OnInit {
-  @Input() post: Post;
+  @Input() post: APIPost;
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getPost();
   }
-  
+
   getPost(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.postService.getPost(id)
+    const Id = +this.route.snapshot.paramMap.get('Id');
+    debugger;
+    this.postService.getPost(Id)
       .subscribe(post => this.post = post);
   }
 
