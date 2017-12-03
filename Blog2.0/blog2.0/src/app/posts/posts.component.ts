@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PostService } from '../post.service';
-import { Post } from '../post';
+import { APIPost } from '../apiPost';
 
 @Component({
   selector: 'app-posts',
@@ -9,7 +9,7 @@ import { Post } from '../post';
   styleUrls: ['posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  posts: Post[];
+  posts: APIPost[];
 
   constructor(private postService: PostService) { }
 
