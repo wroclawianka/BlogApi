@@ -9,9 +9,9 @@ export class SidebarComponent implements OnInit {
   aboutMeHeader = "About me";
   aboutMeContent = `Welcome to my blog template project. 
   This page is created for my self-learning purposes. 
-  I am training frontend skills, so I will practice here 
+  <br> I am training frontend skills, so I will practice here 
   Angular & TypeScript with other tools and frameworks. 
-  To see more of my project, please, visit my GitHub profile.`;
+  <br>To see more of my project, please, visit my GitHub profile.`;
 
   constructor() { }
 
