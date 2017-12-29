@@ -1,0 +1,13 @@
+nav {
+    text-align: center;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    padding: 2em;
+}
+
+a:hover {
+    color: rgb(165, 165, 165);
+}
