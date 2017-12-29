@@ -1,11 +1,16 @@
 <div class="box posts">
     <div *ngFor="let post of posts">
         <div class="box post">
-            <a routerLink="/post/{{post.Id}}">
-                <h3>{{post.Title}}</h3>
-            </a>
+            <div class="title">
+                <a routerLink="/post/{{post.Id}}">
+                    <h2>{{post.Title}}</h2>
+                </a>
+            </div>
             <div class="preview">
-                {{createPreview(post.Text)}}
+                <p>{{createPreview(post.Text)}}</p>
+            </div>
+            <div class="picture">
+                <!-- TODO: Add proper picture to each post -->
             </div>
         </div>
     </div>
