@@ -13,6 +13,7 @@ import { PostsComponent } from './posts/posts.component'
 import { PostSingleComponent } from './post-single/post-single.component';
 import { PostService } from './post.service';
 import { AppRoutingModule } from './app-routing.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     PostsComponent,
-    PostSingleComponent
+    PostSingleComponent,
+    SidebarComponent
   ],
   bootstrap: [
     AppComponent
