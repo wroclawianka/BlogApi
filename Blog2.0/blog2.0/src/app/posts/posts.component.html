@@ -1,7 +1,12 @@
-<ul class="posts">
-    <li *ngFor="let post of posts">
-        <a routerLink="/post/{{post.Id}}">
-        {{post.Title}}
-      </a>
-    </li>
-</ul>
+<div class="box posts">
+    <div *ngFor="let post of posts">
+        <div class="box post">
+            <a routerLink="/post/{{post.Id}}">
+                <h3>{{post.Title}}</h3>
+            </a>
+            <div class="preview">
+                {{createPreview(post.Text)}}
+            </div>
+        </div>
+    </div>
+</div>

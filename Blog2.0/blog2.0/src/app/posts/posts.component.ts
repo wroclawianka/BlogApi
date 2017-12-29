@@ -17,6 +17,10 @@ export class PostsComponent implements OnInit {
     this.postService.getPosts().subscribe(posts => this.posts = posts);
   }
 
+  createPreview(text : string) : string {
+      return text.match(/(.{1,99}\w)\s/)[1] + '...';
+  }
+
   ngOnInit(): void {
     this.getPosts();
   }
