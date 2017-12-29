@@ -14,6 +14,7 @@ import { PostSingleComponent } from './post-single/post-single.component';
 import { PostService } from './post.service';
 import { AppRoutingModule } from './app-routing.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AppComponent,
     PostsComponent,
     PostSingleComponent,
-    SidebarComponent
+    SidebarComponent,
+    NavigationComponent
   ],
   bootstrap: [
     AppComponent
