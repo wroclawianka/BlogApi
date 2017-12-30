@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
  title = 'Prague';
- subtitle = 'with my eyes'
+ subtitle = 'with my eyes';
+ footer = 'All Rights Reserved, Design and code by Dorota Zelga';
 }

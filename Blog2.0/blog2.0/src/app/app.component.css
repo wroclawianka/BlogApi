@@ -24,8 +24,7 @@ body {
 /* special fonts */
 
 .header,
-.nav,
-.footer {
+.nav {
     font-family: "Playfair Display";
 }
 
@@ -44,6 +43,7 @@ body {
 .header .subtitle {
     color: rgb(165, 165, 165);
     font-style: italic;
+    font-weight: lighter;
 }
 
 
@@ -79,10 +79,12 @@ a {
 
 .footer {
     grid-area: footer;
+    border-top: 1px solid black;
     text-align: center;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+    /* font */
+    font-size: 67%;
+    word-spacing: 0.3em;
+    letter-spacing: 0.15em;
 }
 
 
