@@ -12,7 +12,7 @@ import { identifierModuleUrl } from '@angular/compiler';
 @Injectable()
 export class PostService { 
 
-    private enableAPImode : boolean = false;
+    private enableAPImode : boolean = true;
     private postsUrl = this.findUrl();
     private findUrl() : string{
         var apiUrl = 'http://localhost:11709/api/blogpost/get';
