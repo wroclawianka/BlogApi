@@ -15,7 +15,7 @@ body {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: minmax(300px, 3fr) 1fr;
-    grid-template-areas: "header header" "nav nav" "content sidebar" "footer footer";
+    /* grid-template-areas: "header header" "nav nav" "content sidebar" "footer footer"; */
     /* fonts */
     font-size: 150%;
 }
@@ -38,6 +38,9 @@ body {
 
 .header .title {
     font-size: 3.5em;
+    /* non-anchor behaviour */
+    color: inherit;
+    text-decoration: none;
 }
 
 .header .subtitle {
@@ -66,12 +69,29 @@ a {
 /* page content */
 
 .content {
-    /* subgrid */
-    display: grid;
-    grid-gap: 10px;
-    /* content */
     align-content: start;
     justify-content: strech;
+}
+
+
+/* post title propeties */
+
+.title {
+    color: inherit;
+    text-decoration: none;
+    font-family: "Playfair Display";
+    text-align: center;
+}
+
+.title:hover {
+    color: rgb(99, 93, 93);
+}
+
+
+/* text propeties */
+
+.text {
+    text-align: justify;
 }
 
 

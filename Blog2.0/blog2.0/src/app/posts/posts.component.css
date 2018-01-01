@@ -1,28 +1,7 @@
-/* post properties */
-
 .post {
-    padding-bottom: 3em;
-}
-
-
-/* anchor propeties */
-
-a {
-    color: inherit;
-    text-decoration: none;
-    font-family: "Playfair Display";
-    text-align: center;
-}
-
-a:hover {
-    color: rgb(99, 93, 93);
-}
-
-
-/* preview propeties */
-
-p {
-    text-align: justify;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas: "title" "preview" "picture" "readMore";
 }
 
 
@@ -38,4 +17,9 @@ p {
 
 .picture {
     grid-area: picture;
+}
+
+.readMore {
+    grid-area: readMore;
+    justify-self: end;
 }

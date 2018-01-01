@@ -6,7 +6,7 @@ import { APIPost } from '../apiPost';
 @Component({
   selector: 'app-posts',
   templateUrl: 'posts.component.html',
-  styleUrls: ['posts.component.css']
+  styleUrls: ['posts.component.css', '../app.component.css', '../buttons.css']
 })
 export class PostsComponent implements OnInit {
   posts: APIPost[];
