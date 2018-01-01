@@ -18,7 +18,7 @@ export class PostsComponent implements OnInit {
   }
 
   createPreview(text : string) : string {
-      return text.match(/(.{1,99}\w)\s/)[1] + '...';
+      return text.match(/(.{1,199}\w)\s/)[1] + '...';
   }
 
   ngOnInit(): void {

@@ -1,22 +1,41 @@
+/* post properties */
+
 .post {
-    text-align: center;
+    padding-bottom: 3em;
 }
 
-.selected {
-    background-color: #CFD8DC !important;
-    color: white;
-}
 
-.posts li.selected:hover {
-    background-color: #BBD8DC !important;
-}
-
-.posts li:hover {
-    color: #607D8B;
-    left: .1em;
-}
+/* anchor propeties */
 
 a {
     color: inherit;
     text-decoration: none;
+    font-family: "Playfair Display";
+    text-align: center;
+}
+
+a:hover {
+    color: rgb(99, 93, 93);
+}
+
+
+/* preview propeties */
+
+p {
+    text-align: justify;
+}
+
+
+/* grid propeties */
+
+.title {
+    grid-area: title;
+}
+
+.preview {
+    grid-area: preview;
+}
+
+.picture {
+    grid-area: picture;
 }

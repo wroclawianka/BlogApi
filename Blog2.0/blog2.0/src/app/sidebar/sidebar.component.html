@@ -1,4 +1,4 @@
 <div class="about-me">
-    <h4>{{aboutMeHeader}}</h4>
-    <p>{{aboutMeContent}}</p>
+    <p class="header">{{aboutMeHeader | uppercase}}</p>
+    <p class="content" [innerHTML]=aboutMeContent></p>
 </div>
