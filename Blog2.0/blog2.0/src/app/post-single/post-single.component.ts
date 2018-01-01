@@ -8,7 +8,8 @@ import { APIPost } from '../apiPost';
 
 @Component({
   selector: 'app-post-single',
-  templateUrl: 'post-single.component.html'
+  templateUrl: 'post-single.component.html',
+  styleUrls: ['post-single.component.css', '../app.component.css', '../buttons.css']
 })
 export class PostSingleComponent implements OnInit {
   @Input() post: APIPost;
@@ -24,7 +25,6 @@ export class PostSingleComponent implements OnInit {
 
   getPost(): void {
     const Id = +this.route.snapshot.paramMap.get('Id');
-    debugger;
     this.postService.getPost(Id)
       .subscribe(post => this.post = post);
   }
