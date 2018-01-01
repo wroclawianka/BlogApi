@@ -13,11 +13,11 @@ export class NavigationComponent implements OnInit {
     },
     {
       title: "About Blog",
-      path: "/" //TODO: About Blog - the page doesn't created yet
+      path: "/about-blog"
     },
     {
       title: "Contact",
-      path: "/" //TODO: Contact - the page doesn't created yet
+      path: "/contact"
     },
   ];
 
