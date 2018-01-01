@@ -16,7 +16,7 @@ export class AppComponent {
     }
 
     getGridTemplate() {
-        const widthOfChange = 800;
+        const widthOfChange = 1000;
         return window.innerWidth <= widthOfChange ? this.setSideBarBelow() : this.setSideBarAbove();
     }
 
