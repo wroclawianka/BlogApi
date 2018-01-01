@@ -6,12 +6,15 @@
                     <h2>{{post.Title}}</h2>
                 </a>
             </div>
-            <div class="preview">
+            <div class="preview text">
                 <p>{{createPreview(post.Text)}}</p>
             </div>
             <div class="picture">
                 <!-- TODO: Add proper picture to each post -->
             </div>
+            <a class="readMore" routerLink="/post/{{post.Id}}">
+                <button class="action"><span>Read More</span></button>
+            </a>
         </div>
     </div>
 </div>
