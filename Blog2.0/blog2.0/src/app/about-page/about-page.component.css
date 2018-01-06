@@ -1,0 +1,9 @@
+/* grid */
+
+.about-page {
+    grid-template-areas: "title" "text" "author";
+}
+
+.author {
+    grid-area: author;
+}

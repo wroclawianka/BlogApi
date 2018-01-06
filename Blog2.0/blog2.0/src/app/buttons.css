@@ -3,6 +3,7 @@ button {
     height: 50px;
     padding: 10px;
     margin: 5px;
+    justify-self: end;
     text-align: center;
     border-radius: 1.5em;
     border: 1px solid rgb(165, 165, 165);

@@ -1,0 +1,5 @@
+/* grid */
+
+.contact-page {
+    grid-template-areas: "title" "text";
+}

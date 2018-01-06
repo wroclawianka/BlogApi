@@ -1,18 +1,14 @@
-<div class="container" [style.grid-template-areas]=getGridTemplate()>
-
+<div class="container">
     <div class="box header">
         <a routerLink="/">
-            <h1 class="title">{{title}}</h1>
+            <h1 class="main-title">{{title}}</h1>
         </a>
         <h4 class="subtitle">{{subtitle}}</h4>
     </div>
     <div class="box nav">
         <app-navigation></app-navigation>
     </div>
-    <div class="box sidebar">
-        <app-sidebar></app-sidebar>
-    </div>
-    <div class="box content">
+    <div class="box main">
         <router-outlet></router-outlet>
     </div>
     <div class="box footer">

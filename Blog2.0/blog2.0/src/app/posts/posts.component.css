@@ -1,22 +1,11 @@
+.main-page {
+    /* main page grid */
+    grid-template-columns: 3fr 1fr;
+}
+
 .post {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-areas: "title" "preview" "picture" "readMore";
-}
-
-
-/* grid propeties */
-
-.title {
-    grid-area: title;
-}
-
-.preview {
-    grid-area: preview;
-}
-
-.picture {
-    grid-area: picture;
+    /* post subgrid */
+    grid-template-areas: "title" "text" "readMore";
 }
 
 .readMore {

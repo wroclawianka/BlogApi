@@ -1,10 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 import { PostService } from '../post.service';
 import { APIPost } from '../apiPost';
+import { ContentLayout } from '../contentLayout.module';
+
 
 @Component({
   selector: 'app-post-single',
@@ -18,9 +20,18 @@ export class PostSingleComponent implements OnInit {
     private postService: PostService,
     private location: Location
   ) { }
+  contentLayout: ContentLayout = new ContentLayout(1000, ["content", "sidebar"]);
+
+
 
   ngOnInit(): void {
     this.getPost();
+    this.contentLayout.getGridTemplate();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.contentLayout.getGridTemplate();
   }
 
   getPost(): void {
