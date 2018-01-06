@@ -1,27 +1,12 @@
 .main-page {
     /* main page grid */
     grid-template-columns: 3fr 1fr;
-    /* minmax(300px, 3fr) 1fr; */
-    /* grid-template-areas: "post-list sidebar"; */
 }
 
 .post {
     /* post subgrid */
     grid-template-areas: "title" "text" "readMore";
 }
-
-
-/* grid propeties */
-
-
-/* .content {
-    grid-area: content;
-} */
-
-
-/* .picture {
-    grid-area: picture;
-} */
 
 .readMore {
     grid-area: readMore;
