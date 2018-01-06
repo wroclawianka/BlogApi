@@ -1,15 +1,16 @@
 /* grid */
 
-.about-page {
-    display: grid;
-    grid-gap: 10px;
+.contact-page {
+    /* display: grid;
+    grid-gap: 10px; */
     grid-template-areas: "title" "text";
 }
 
-.title {
+
+/* .title {
     grid-area: title;
 }
 
 .text {
     grid-area: text;
-}
+} */

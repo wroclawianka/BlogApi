@@ -1,21 +1,14 @@
-body {
-    /* position */
-    height: 100%;
-}
-
 .container {
     /* margin */
     margin: 0 auto;
     max-width: 1200px;
     /* position */
     position: relative;
-    height: auto !important;
     min-height: 100%;
     /* grid parameters */
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: minmax(300px, 3fr) 1fr;
-    grid-template-areas: "header header" "nav nav" "content sidebar" "footer footer";
+    grid-template-areas: "header" "nav" "main" "footer";
     /* fonts */
     font-size: 150%;
 }
@@ -36,7 +29,7 @@ body {
     margin: 0 auto;
 }
 
-.header .title {
+.header .main-title {
     font-size: 3.5em;
     /* non-anchor behaviour */
     color: inherit;
@@ -68,7 +61,7 @@ a {
 
 /* page content */
 
-.content {
+.main {
     align-content: start;
     justify-content: strech;
 }
@@ -76,19 +69,23 @@ a {
 
 /* post title propeties */
 
-.title {
+.main-title {
     color: inherit;
     text-decoration: none;
     font-family: "Playfair Display";
     text-align: center;
 }
 
-.title:hover {
+.main-title:hover {
     color: rgb(99, 93, 93);
 }
 
 
 /* text propeties */
+
+.title {
+    text-align: center;
+}
 
 .text {
     text-align: justify;
@@ -126,6 +123,26 @@ a {
     grid-area: sidebar;
 }
 
+.main {
+    grid-area: main;
+}
+
 .content {
     grid-area: content;
+}
+
+
+/* subgrid */
+
+.subgrid {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.title {
+    grid-area: title;
+}
+
+.text {
+    grid-area: text;
 }

@@ -1,5 +1,10 @@
-<div *ngIf="post" class="post">
-    <h2 class="title">{{post.Title}}</h2>
-    <p class="text">{{post.Text}}</p>
-    <button class="goback action" (click)="goBack()"><span>Go Back</span></button>
+<div class="box post-page subgrid" [style.grid-template-areas]=this.contentLayout.getGridTemplate()>
+    <div *ngIf="post" class="box content post subgrid">
+        <h2 class="title">{{post.Title}}</h2>
+        <p class="text">{{post.Text}}</p>
+        <button class="goback action" (click)="goBack()"><span>Go Back</span></button>
+    </div>
+    <div class="box sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
 </div>

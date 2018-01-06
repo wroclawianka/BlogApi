@@ -1,23 +1,27 @@
+.main-page {
+    /* main page grid */
+    grid-template-columns: 3fr 1fr;
+    /* minmax(300px, 3fr) 1fr; */
+    /* grid-template-areas: "post-list sidebar"; */
+}
+
 .post {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-areas: "title" "preview" "picture" "readMore";
+    /* post subgrid */
+    grid-template-areas: "title" "text" "readMore";
 }
 
 
 /* grid propeties */
 
-.title {
-    grid-area: title;
-}
 
-.preview {
-    grid-area: preview;
-}
+/* .content {
+    grid-area: content;
+} */
 
-.picture {
+
+/* .picture {
     grid-area: picture;
-}
+} */
 
 .readMore {
     grid-area: readMore;
