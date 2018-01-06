@@ -24,6 +24,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    // mock
     // HttpClientInMemoryWebApiModule.forRoot(
     //   InMemoryDataService, { dataEncapsulation: false }
     // )
@@ -35,7 +36,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     SidebarComponent,
     NavigationComponent,
     AboutPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
   ],
   bootstrap: [
     AppComponent
