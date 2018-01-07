@@ -46,3 +46,15 @@ button:hover span:after {
     opacity: 1;
     right: 0;
 }
+
+.sm-btn {
+    width: 100px;
+    height: 25px;
+    padding: 0px;
+    /* fonts */
+    font-size: 0.8em;
+}
+
+button.scroll-top:hover {
+    background-color: rgb(165, 165, 165);
+}
