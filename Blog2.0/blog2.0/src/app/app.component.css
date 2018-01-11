@@ -149,10 +149,6 @@ a {
     grid-area: text;
 }
 
-
-/* css class for testing purpose */
-
-
-/* * {
-    border: solid 1px black;
-} */
+.scroll-top {
+    transition: all 0.5s ease 0s;
+}
