@@ -1,11 +1,20 @@
 <div class="box post-page subgrid" [style.grid-template-areas]=this.contentLayout.getGridTemplate()>
     <div *ngIf="post" class="box content post subgrid">
         <h2 class="title">{{post.Title}}</h2>
-        <p class="text">{{post.Text}}</p>
+        <div class="text">
+            <p *ngIf="!editmode">{{post.Text}}</p>
+            <textarea *ngIf="editmode" class="editText" [(ngModel)]="post.Text"></textarea>
+        </div>
         <button class="goback action" (click)="goBack()"><span>Go Back</span></button>
         <div class="special-buttons">
-            <button class="delete sm-btn" (click)="delete()"><span>Delete</span></button>
-            <button class="save sm-btn" (click)="save()"><span>Save</span></button>
+            <div *ngIf="!editmode">
+                <button class="edit sm-btn" (click)="edit()"><span>Edit</span></button>
+                <button class="delete sm-btn" (click)="delete()"><span>Delete</span></button>
+            </div>
+            <div *ngIf="editmode">
+                <button class="save sm-btn" (click)="save()"><span>Save</span></button>
+                <button class="cancel sm-btn" (click)="cancel()"><span>Cancel</span></button>
+            </div>
         </div>
     </div>
     <div class="box sidebar">

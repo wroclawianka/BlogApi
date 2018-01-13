@@ -21,8 +21,8 @@ export class PostSingleComponent implements OnInit {
     private location: Location
   ) { }
   contentLayout: ContentLayout = new ContentLayout(1000, ["content", "sidebar"]);
-
-
+  editmode: boolean;
+  oldPost : APIPost;
 
   ngOnInit(): void {
     this.getPost();
@@ -45,12 +45,28 @@ export class PostSingleComponent implements OnInit {
   }
 
   delete(){
-    this.postService.deletePost(this.post).subscribe(() => this.goBack());
+    let msg = "Are you sure that you want to delete the post?"
+    if(confirm(msg)){
+      this.postService.deletePost(this.post).subscribe(() => this.goBack());
+    }
   }
 
-  
+  edit(){
+    this.oldPost = Object.assign({}, this.post); 
+    this.toggleEdit();
+  }
+
   save(){
-    this.postService.updatePost(this.post).subscribe(() => this.goBack());
+    this.postService.updatePost(this.post).subscribe(() => this.toggleEdit());
+  }
+
+  cancel(){
+    this.post = Object.assign({}, this.oldPost); 
+    this.toggleEdit();
+  }
+
+  toggleEdit(){
+    this.editmode = !this.editmode;
   }
 }
 
