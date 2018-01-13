@@ -43,5 +43,14 @@ export class PostSingleComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  delete(){
+    this.postService.deletePost(this.post).subscribe(() => this.goBack());
+  }
+
+  
+  save(){
+    this.postService.updatePost(this.post).subscribe(() => this.goBack());
+  }
 }
 

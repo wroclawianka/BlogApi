@@ -8,6 +8,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { APIPost } from './apiPost';
 import { identifierModuleUrl } from '@angular/compiler';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable()
 export class PostService { 
@@ -15,7 +18,7 @@ export class PostService {
     private enableAPImode : boolean = true;
     private postsUrl = this.findUrl();
     private findUrl() : string{
-        var apiUrl = 'http://localhost:11709/api/blogpost/get';
+        var apiUrl = 'http://localhost:11709/api/blogpost';
         var mockUrl = 'api/posts';
         return  this.enableAPImode ? apiUrl : mockUrl;}
         
@@ -25,15 +28,35 @@ export class PostService {
     }
 
     getPosts(): Observable<APIPost[]> {
-        return this.http.get<APIPost[]>(this.postsUrl);
+        return this.http.get<APIPost[]>(`${this.postsUrl}/get`);
     }
 
     getPost(Id: number): Observable<APIPost> {
-        const url = `${this.postsUrl}/${Id}`;
+        const url = `${this.postsUrl}/get/${Id}`;
         return this.http.get<APIPost>(url)
         .pipe(
           tap(_ => this.log(`fetched post Id=${Id}`)),
           catchError(this.handleError<APIPost>(`getPost Id=${Id}`))
+        );
+      }
+
+      //test it!
+      updatePost(post:APIPost) : Observable<any>{
+        return this.http.put(this.postsUrl, post, httpOptions).pipe(
+          tap(_ => this.log(`updated hero id=${post.Id}`)),
+          catchError(this.handleError<any>('updatePost'))
+        );
+      }
+
+      /** DELETE: delete the hero from the server */
+      deletePost (post: APIPost | number): Observable<APIPost> {
+        debugger;
+        const id = typeof post === 'number' ? post : post.Id;
+        const url = `${this.postsUrl}/delete/${id}`; //ten get jest bez sensu
+
+          return this.http.delete<APIPost>(url, httpOptions).pipe(
+          tap(_ => this.log(`deleted post Id=${id}`)),
+          catchError(this.handleError<APIPost>('deletePost'))
         );
       }
 

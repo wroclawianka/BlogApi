@@ -148,7 +148,3 @@ a {
 .text {
     grid-area: text;
 }
-
-.scroll-top {
-    transition: all 0.5s ease 0s;
-}

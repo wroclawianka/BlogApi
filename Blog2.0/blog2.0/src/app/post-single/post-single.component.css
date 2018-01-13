@@ -7,7 +7,7 @@
 }
 
 .post {
-    grid-template-areas: "title" "text" "goback";
+    grid-template-areas: "title" "text" "goback" "special-buttons";
 }
 
 .goback {
