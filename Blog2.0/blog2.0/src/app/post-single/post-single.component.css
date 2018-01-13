@@ -18,19 +18,37 @@ button {
     justify-self: end;
 }
 
+.title {
+    min-height: 150px;
+    max-height: 100%;
+    box-sizing: border-box;
+}
+
 .text {
     min-height: 300px;
     max-height: 100%;
+    box-sizing: border-box;
 }
 
-.editText {
+.editable {
     height: 100%;
     width: 100%;
     padding: 12px 20px;
+    padding-top: 1em;
+    /* TODO */
     box-sizing: border-box;
     border-radius: 20px;
     resize: none;
     font-family: "Playfair Display";
+    text-align: justify;
+}
+
+.editTitle {
+    font-size: 1.4em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.editText {
     font-size: 20.5px;
-    text-align: justify
 }
