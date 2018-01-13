@@ -49,7 +49,6 @@ export class PostService {
 
       /** DELETE: delete the hero from the server */
       deletePost (post: APIPost | number): Observable<APIPost> {
-        debugger;
         const id = typeof post === 'number' ? post : post.Id;
         const url = `${this.postsUrl}/delete/${id}`; //ten get jest bez sensu
 
