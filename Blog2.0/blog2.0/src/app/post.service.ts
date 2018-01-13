@@ -40,9 +40,8 @@ export class PostService {
         );
       }
 
-      //test it!
       updatePost(post:APIPost) : Observable<any>{
-        return this.http.put(this.postsUrl, post, httpOptions).pipe(
+        return this.http.put(`${this.postsUrl}/update`, post, httpOptions).pipe(
           tap(_ => this.log(`updated hero id=${post.Id}`)),
           catchError(this.handleError<any>('updatePost'))
         );
