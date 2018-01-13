@@ -35,7 +35,8 @@ namespace BlogApi.Controllers
                 }
             };
         public BlogPostController()
-        {            
+        {
+            
           
         }
         [Route("api/blogpost/get")]
@@ -61,6 +62,8 @@ namespace BlogApi.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        [Route("api/blogpost/update")]
         public IHttpActionResult Update(BlogPostVM toUpdate)
         {
             if (posts.All(x => x.Id != toUpdate.Id))
