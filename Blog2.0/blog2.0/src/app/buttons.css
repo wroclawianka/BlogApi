@@ -61,7 +61,6 @@ button.sm-btn:hover {
     background-color: rgb(165, 165, 165);
 }
 
-.delete,
-.save {
+.special-buttons button {
     font-size: 0.6em;
 }
