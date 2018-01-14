@@ -1,4 +1,10 @@
 <div class="about-me">
     <p class="header">{{aboutMeHeader | uppercase}}</p>
     <p class="content" [innerHTML]=aboutMeContent></p>
+    <div class="links" *ngFor="let ref of references">
+        <a href="{{ref.url}}" target="_blank">
+            <i class="{{ref.icon}}" aria-hidden="true"></i>
+            <span>{{ref.text}}</span>
+        </a>
+    </div>
 </div>
