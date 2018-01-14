@@ -16,12 +16,6 @@ button {
     text-transform: uppercase;
 }
 
-button.active {
-    /* effects */
-    cursor: pointer;
-    transition: all 0.5s;
-}
-
 button span {
     cursor: pointer;
     display: inline-block;
@@ -29,7 +23,13 @@ button span {
     transition: 0.5s;
 }
 
-button span:after {
+button.active {
+    /* effects */
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+button.action span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -38,11 +38,11 @@ button span:after {
     transition: 0.5s;
 }
 
-button:hover span {
+button.action:hover span {
     padding-right: 25px;
 }
 
-button:hover span:after {
+button.action:hover span:after {
     opacity: 1;
     right: 0;
 }
@@ -53,8 +53,14 @@ button:hover span:after {
     padding: 0px;
     /* fonts */
     font-size: 0.8em;
+    /* effects */
+    transition: all 0.5s ease 0s;
 }
 
-button.scroll-top:hover {
+button.sm-btn:hover {
     background-color: rgb(165, 165, 165);
+}
+
+.special-buttons button {
+    font-size: 0.6em;
 }

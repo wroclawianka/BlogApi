@@ -1,14 +1,32 @@
 .about-me {
     text-align: center;
+    font-family: "Playfair Display";
 }
 
 .header {
-    font-family: "Playfair Display";
     align-self: center;
 }
 
 .content {
-    font-size: 0.87em;
+    font-size: 0.78em;
     letter-spacing: 0.1em;
     line-height: 1.8em;
+}
+
+.links {
+    color: rgb(99, 93, 93);
+    font-size: 83%;
+    padding-bottom: 1em;
+    transition: all 0.5s ease 0s;
+}
+
+.links:hover {
+    color: black;
+    transform: scale(1.03);
+    transition: all 0.5s ease 0s;
+}
+
+.links a {
+    text-decoration: none;
+    color: inherit;
 }

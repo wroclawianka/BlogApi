@@ -8,11 +8,7 @@ namespace BlogApi.Controllers
 {
     public class BlogPostController : ApiController
     {
-        private IEnumerable<BlogPostVM> posts;
-        public BlogPostController()
-        {
-            posts = new List<BlogPostVM>()
-            {
+        private static IEnumerable<BlogPostVM> posts = new BlogPostVM[] {
                 new BlogPostVM()
                 {
                     Id = 1,
@@ -38,11 +34,15 @@ namespace BlogApi.Controllers
                     Text = "Mauris lacinia dolor id libero scelerisque auctor. Praesent ut leo ut velit interdum dapibus. Nam a pellentesque sapien. Fusce sit amet erat nec mauris aliquet tempus ut et tellus. Sed vel nunc sapien. Donec ornare, diam at gravida consequat, mi quam posuere metus, ac auctor libero tortor non nulla. In ornare sit amet purus rutrum accumsan.",
                 }
             };
+        public BlogPostController()
+        {
+            
+          
         }
         [Route("api/blogpost/get")]
         public IHttpActionResult Get()
         {
-            return Json(this.posts);
+            return Json(posts.ToList());
         }
         [Route("api/blogpost/get/{id}")]
         public IHttpActionResult Get(int id)
@@ -50,6 +50,8 @@ namespace BlogApi.Controllers
             return Json(posts.Single(x => x.Id == id));
         }
 
+        [HttpDelete]
+        [Route("api/blogpost/delete/{id}")]
         public IHttpActionResult Delete(int id)
         {
             if (posts.All(x => x.Id != id))
@@ -60,6 +62,8 @@ namespace BlogApi.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        [Route("api/blogpost/update")]
         public IHttpActionResult Update(BlogPostVM toUpdate)
         {
             if (posts.All(x => x.Id != toUpdate.Id))
