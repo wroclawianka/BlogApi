@@ -42,15 +42,15 @@ export class PostService {
 
       updatePost(post:APIPost) : Observable<any>{
         return this.http.put(`${this.postsUrl}/update`, post, httpOptions).pipe(
-          tap(_ => this.log(`updated hero id=${post.Id}`)),
+          tap(_ => this.log(`updated post id=${post.Id}`)),
           catchError(this.handleError<any>('updatePost'))
         );
       }
 
-      /** DELETE: delete the hero from the server */
+      /** DELETE: delete the post from the server */
       deletePost (post: APIPost | number): Observable<APIPost> {
         const id = typeof post === 'number' ? post : post.Id;
-        const url = `${this.postsUrl}/delete/${id}`; //ten get jest bez sensu
+        const url = `${this.postsUrl}/delete/${id}`;
 
           return this.http.delete<APIPost>(url, httpOptions).pipe(
           tap(_ => this.log(`deleted post Id=${id}`)),
