@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Picture } from '../picture';
 
 @Component({
   selector: 'app-about-page',
@@ -13,6 +14,7 @@ export class AboutPageComponent implements OnInit {
     technologies used by me. In the days when I am creating this template, 
     I am at the very beginning of my adventure with front-end. Enjoy!`;
   author = "- Dorota";
+  picture : Picture = new Picture(".\\assets\\imgs\\about_blog.jpg", "view of Prague", false);
 
   constructor() { }
 

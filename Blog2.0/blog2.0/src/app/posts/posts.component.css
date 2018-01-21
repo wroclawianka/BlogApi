@@ -4,11 +4,23 @@
 }
 
 .post {
-    /* post subgrid */
-    grid-template-areas: "title" "text" "readMore";
+    /* subgrid */
+    grid-template-areas: "title" "picture" "text" "readMore";
+    /* akcent */
+    border-bottom: 1px rgb(165, 165, 165) solid;
 }
 
 .readMore {
     grid-area: readMore;
     justify-self: end;
+}
+
+.main-picture {
+    grid-area: "picture";
+    /* position */
+    text-align: center;
+}
+
+img {
+    width: 90%;
 }

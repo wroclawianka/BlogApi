@@ -1,9 +1,17 @@
 /* grid */
 
 .about-page {
-    grid-template-areas: "title" "text" "author";
+    grid-template-areas: "title" "image" "text" "author";
 }
 
 .author {
     grid-area: author;
+    justify-self: end;
+    align-self: baseline;
+}
+
+.image {
+    grid-area: image;
+    width: 100%;
+    /* padding-bottom: 1.5em; */
 }
