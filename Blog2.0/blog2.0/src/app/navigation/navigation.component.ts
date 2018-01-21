@@ -15,10 +15,10 @@ export class NavigationComponent implements OnInit {
       title: "About Blog",
       path: "/about-blog"
     },
-    {
-      title: "Contact",
-      path: "/contact"
-    },
+    // {
+    //   title: "Contact",
+    //   path: "/contact"
+    // },
   ];
 
   constructor() { }
