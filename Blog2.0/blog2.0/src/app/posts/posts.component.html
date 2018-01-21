@@ -10,8 +10,8 @@
                 <div class="preview text">
                     <p>{{createPreview(post.Text)}}</p>
                 </div>
-                <div class="picture">
-                    <!-- TODO: Add proper picture to each post -->
+                <div *ngFor="let picture of post.Pictures" class="main-picture">
+                    <img *ngIf="picture.IsMain" class="image" src="{{picture.Url}}" alt="{{picture.Title}}">
                 </div>
                 <a class="readMore" routerLink="/post/{{post.Id}}">
                     <button class="action"><span>Read More</span></button>
