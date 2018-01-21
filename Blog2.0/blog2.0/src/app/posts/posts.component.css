@@ -17,10 +17,4 @@
 
 .main-picture {
     grid-area: "picture";
-    /* position */
-    text-align: center;
-}
-
-img {
-    width: 90%;
 }

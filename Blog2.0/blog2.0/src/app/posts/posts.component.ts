@@ -8,7 +8,7 @@ import { ContentLayout } from '../contentLayout.module';
 @Component({
   selector: 'app-posts',
   templateUrl: 'posts.component.html',
-  styleUrls: ['posts.component.css', '../app.component.css', '../buttons.css']
+  styleUrls: ['posts.component.css', '../app.component.css', '../buttons.css', '../pictures.css']
 })
 export class PostsComponent implements OnInit {
   posts: Post[];

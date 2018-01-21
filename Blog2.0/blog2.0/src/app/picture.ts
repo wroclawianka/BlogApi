@@ -3,9 +3,8 @@ export class Picture{
     Title: string;
     IsMain : boolean;
 
-    constructor(url : string, title : string, isMain : boolean){
+    constructor(url : string, title : string){
       this.Url = url;
       this.Title = title;
-      this.IsMain = isMain;
     }
   }

@@ -11,7 +11,7 @@ import { ContentLayout } from '../contentLayout.module';
 @Component({
   selector: 'app-post-single',
   templateUrl: 'post-single.component.html',
-  styleUrls: ['post-single.component.css', '../app.component.css', '../buttons.css']
+  styleUrls: ['post-single.component.css', '../app.component.css', '../buttons.css', '../pictures.css']
 })
 export class PostSingleComponent implements OnInit {
   @Input() post: Post;

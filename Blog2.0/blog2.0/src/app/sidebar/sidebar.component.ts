@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Reference } from '../reference';
+import { Picture } from '../picture';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,6 +14,7 @@ export class SidebarComponent implements OnInit {
   This page is created for my self-learning purposes. 
   <br> I am training frontend skills, so I will practice here 
   Angular & TypeScript with other tools and frameworks.`;
+  authorPicture: Picture = new Picture(".\\assets\\imgs\\author.jpg", "Author of ther blog");
 
   references: Reference[] = [
     {
