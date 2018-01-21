@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { APIPost } from './apiPost';
+import { Post } from './post';
 import { identifierModuleUrl } from '@angular/compiler';
 
 const httpOptions = {
@@ -27,20 +27,20 @@ export class PostService {
         private http: HttpClient) {
     }
 
-    getPosts(): Observable<APIPost[]> {
-        return this.http.get<APIPost[]>(`${this.postsUrl}/get`);
+    getPosts(): Observable<Post[]> {
+        return this.http.get<Post[]>(`${this.postsUrl}/get`);
     }
 
-    getPost(Id: number): Observable<APIPost> {
+    getPost(Id: number): Observable<Post> {
         const url = `${this.postsUrl}/get/${Id}`;
-        return this.http.get<APIPost>(url)
+        return this.http.get<Post>(url)
         .pipe(
           tap(_ => this.log(`fetched post Id=${Id}`)),
-          catchError(this.handleError<APIPost>(`getPost Id=${Id}`))
+          catchError(this.handleError<Post>(`getPost Id=${Id}`))
         );
       }
 
-      updatePost(post:APIPost) : Observable<any>{
+      updatePost(post:Post) : Observable<any>{
         return this.http.put(`${this.postsUrl}/update`, post, httpOptions).pipe(
           tap(_ => this.log(`updated post id=${post.Id}`)),
           catchError(this.handleError<any>('updatePost'))
@@ -48,13 +48,13 @@ export class PostService {
       }
 
       /** DELETE: delete the post from the server */
-      deletePost (post: APIPost | number): Observable<APIPost> {
+      deletePost (post: Post | number): Observable<Post> {
         const id = typeof post === 'number' ? post : post.Id;
         const url = `${this.postsUrl}/delete/${id}`;
 
-          return this.http.delete<APIPost>(url, httpOptions).pipe(
+          return this.http.delete<Post>(url, httpOptions).pipe(
           tap(_ => this.log(`deleted post Id=${id}`)),
-          catchError(this.handleError<APIPost>('deletePost'))
+          catchError(this.handleError<Post>('deletePost'))
         );
       }
 

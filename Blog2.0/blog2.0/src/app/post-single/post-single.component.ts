@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 import { PostService } from '../post.service';
-import { APIPost } from '../apiPost';
+import { Post } from '../post';
 import { ContentLayout } from '../contentLayout.module';
 
 
@@ -14,7 +14,7 @@ import { ContentLayout } from '../contentLayout.module';
   styleUrls: ['post-single.component.css', '../app.component.css', '../buttons.css']
 })
 export class PostSingleComponent implements OnInit {
-  @Input() post: APIPost;
+  @Input() post: Post;
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
@@ -22,7 +22,7 @@ export class PostSingleComponent implements OnInit {
   ) { }
   contentLayout: ContentLayout = new ContentLayout(1000, ["content", "sidebar"]);
   editmode: boolean;
-  oldPost : APIPost;
+  oldPost : Post;
 
   ngOnInit(): void {
     this.getPost();

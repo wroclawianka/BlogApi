@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 
 import { PostService } from '../post.service';
-import { APIPost } from '../apiPost';
+import { Post } from '../post';
 import { ContentLayout } from '../contentLayout.module';
 
 
@@ -11,7 +11,7 @@ import { ContentLayout } from '../contentLayout.module';
   styleUrls: ['posts.component.css', '../app.component.css', '../buttons.css']
 })
 export class PostsComponent implements OnInit {
-  posts: APIPost[];
+  posts: Post[];
   contentLayout: ContentLayout = new ContentLayout(1000, ["content", "sidebar"]);
 
 
@@ -22,9 +22,8 @@ export class PostsComponent implements OnInit {
   }
 
   createPreview(text: string): string {
-    return text.match(/(.{1,199}\w)\s/)[1] + '...';
+    return text.match(/(.{1,199}\w)\s/)[1] + '...'; //TODO - if include <> then exclude this part
   }
-
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
