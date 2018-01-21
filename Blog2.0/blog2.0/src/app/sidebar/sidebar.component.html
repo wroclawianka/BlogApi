@@ -1,4 +1,5 @@
 <div class="about-me">
+    <img class="img-circle small" src="{{authorPicture.Url}}" alt="{{authorPicture.Title}}">
     <p class="header">{{aboutMeHeader | uppercase}}</p>
     <p class="content" [innerHTML]=aboutMeContent></p>
     <div class="links" *ngFor="let ref of references">

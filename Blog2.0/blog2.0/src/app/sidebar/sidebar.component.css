@@ -30,3 +30,11 @@
     text-decoration: none;
     color: inherit;
 }
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.small {
+    height: 7em;
+}
