@@ -4,7 +4,7 @@ import { Picture } from '../picture';
 @Component({
   selector: 'app-about-page',
   templateUrl: './about-page.component.html',
-  styleUrls: ['./about-page.component.css', '../app.component.css', '../buttons.css']
+  styleUrls: ['./about-page.component.css', '../app.component.css', '../buttons.css', '../pictures.css']
 })
 export class AboutPageComponent implements OnInit {
   header = "About Prague with my eyes blog";

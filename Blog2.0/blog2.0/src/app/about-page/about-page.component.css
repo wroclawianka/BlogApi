@@ -10,8 +10,10 @@
     align-self: baseline;
 }
 
-.image {
+.about-image {
     grid-area: image;
-    width: 100%;
-    /* padding-bottom: 1.5em; */
+}
+
+.about-image img {
+    width: 95%;
 }

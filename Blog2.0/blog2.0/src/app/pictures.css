@@ -1,0 +1,23 @@
+.center {
+    text-align: center;
+}
+
+.main-picture img {
+    width: 90%;
+}
+
+img.grayed:hover {
+    filter: gray;
+    /* IE5+ */
+    -webkit-filter: grayscale(1);
+}
+
+img.grayed {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
+    /* Webkit Nightlies & Chrome Canary */
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}

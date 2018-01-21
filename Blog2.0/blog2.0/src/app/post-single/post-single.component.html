@@ -9,11 +9,11 @@
             <p *ngIf="!editmode">{{post.Text}}</p>
             <textarea *ngIf="editmode" class="editable editText" [(ngModel)]="post.Text"></textarea>
         </div>
-        <div *ngFor="let picture of post.Pictures" class="main-picture">
-            <img *ngIf="picture.IsMain" class="image" src="{{picture.Url}}" alt="{{picture.Title}}">
+        <div *ngFor="let picture of post.Pictures" class="main-picture center">
+            <img *ngIf="picture.IsMain" class="" src="{{picture.Url}}" alt="{{picture.Title}}">
         </div>
-        <div class="gallery">
-            <img *ngFor="let picture of post.Pictures" class="image" src="{{picture.Url}}" alt="{{picture.Title}}">
+        <div class="gallery center">
+            <img *ngFor="let picture of post.Pictures" class="" src="{{picture.Url}}" alt="{{picture.Title}}">
         </div>
         <div class="special-buttons">
             <div *ngIf="!editmode">
