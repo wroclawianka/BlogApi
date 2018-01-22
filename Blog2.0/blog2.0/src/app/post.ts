@@ -5,5 +5,5 @@ export class Post {
     Title: string;
     Text: string;
     Pictures: Picture[];
-    mainPicture : Picture;
+    MainPicture : Picture;
   }

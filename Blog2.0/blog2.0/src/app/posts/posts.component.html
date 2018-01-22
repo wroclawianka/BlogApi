@@ -7,9 +7,9 @@
                         <h2>{{post.Title}}</h2>
                     </a>
                 </div>
-                <div *ngFor="let picture of post.Pictures" class="main-picture center">
+                <div class="main-picture center">
                     <a routerLink="/post/{{post.Id}}">
-                        <img *ngIf="picture.IsMain" class="grayed" src="{{picture.Url}}" alt="{{picture.Title}}">
+                        <img class="grayed" src="{{post.MainPicture.Url}}" alt="{{post.MainPicture.Title}}">
                     </a>
                 </div>
                 <div class="preview text">

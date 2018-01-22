@@ -37,7 +37,14 @@ export class PostSingleComponent implements OnInit {
   getPost(): void {
     const Id = +this.route.snapshot.paramMap.get('Id');
     this.postService.getPost(Id)
-      .subscribe(post => this.post = post);
+      .subscribe(post => this.post = this.findMainPicture(post));
+  }
+
+  findMainPicture(post: Post) {
+    for (let pic of post.Pictures) {
+      if (pic.IsMain) post.MainPicture = pic;
+    }
+    return post;
   }
 
   goBack(): void {

@@ -18,8 +18,23 @@ export class PostsComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   getPosts(): void {
-    this.postService.getPosts().subscribe(posts => this.posts = posts);
+    this.postService.getPosts().subscribe(posts => this.posts = this.findMainPictures(posts));
   }
+
+  findMainPictures(posts: Post[]) {
+    for (let post of posts) {
+      post = this.findMainPicture(post);
+    }
+    return posts;
+  }
+
+  findMainPicture(post: Post) {
+    for (let pic of post.Pictures) {
+      if (pic.IsMain) post.MainPicture = pic;
+    }
+    return post;
+  }
+
 
   createPreview(text: string): string {
     return text.match(/(.{1,199}\w)\s/)[1] + '...'; //TODO - if include <> then exclude this part
