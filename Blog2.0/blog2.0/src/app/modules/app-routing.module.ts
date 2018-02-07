@@ -8,7 +8,7 @@ import { ContactPageComponent } from './../components/contact-page/contact-page.
 const routes: Routes = [
   { path: '', redirectTo: '/posts', pathMatch: 'full' },
   { path: 'posts', component: PostsComponent },
-  { path: 'post/:Id', component: PostSingleComponent },
+  { path: 'post/:id', component: PostSingleComponent },
   { path: 'about-blog', component: AboutPageComponent },
   { path: 'contact', component: ContactPageComponent },
 ];

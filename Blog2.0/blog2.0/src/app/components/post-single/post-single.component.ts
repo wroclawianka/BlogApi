@@ -37,7 +37,7 @@ export class PostSingleComponent implements OnInit {
   }
 
   getPost(): void {
-    const id = +this.route.snapshot.paramMap.get('Id');
+    const id = +this.route.snapshot.paramMap.get('id');
     this.postService.getPost(id)
     .subscribe((postModelService: PostModelService) => this.post = this.mapToPost(postModelService));
   }
