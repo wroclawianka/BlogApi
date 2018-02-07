@@ -8,6 +8,7 @@ import * as $ from 'jquery';
 })
 export class AppComponent {
     title = 'Prague';
+    titleSecond = 'and Czech Republic';
     subtitle = 'with my eyes';
     footer = 'All Rights Reserved, Design and code by Dorota Zelga';
 

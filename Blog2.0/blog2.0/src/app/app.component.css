@@ -29,22 +29,39 @@
 
 /* header */
 
+.header {
+    width: 255px;
+    justify-self: center;
+}
+
 .header * {
     text-align: center;
     margin: 0 auto;
+    text-align: right;
 }
 
 .header .main-title {
     font-size: 3.5em;
-    /* non-anchor behaviour */
-    color: inherit;
-    text-decoration: none;
+}
+
+.header .second-line {
+    font-size: 0.9em;
+    margin-top: -10px;
 }
 
 .header .subtitle {
     color: rgb(165, 165, 165);
     font-style: italic;
+}
+
+.header .link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.header .lighter {
     font-weight: lighter;
+    text-align: right;
 }
 
 
