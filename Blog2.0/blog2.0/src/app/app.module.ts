@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HttpClientModule } from '@angular/common/http'; 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; //mock
-import { InMemoryDataService }  from './in-memory-data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
-import { PostsComponent } from './posts/posts.component'
-import { PostSingleComponent } from './post-single/post-single.component';
-import { PostService } from './post.service';
-import { AppRoutingModule } from './app-routing.module';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { AboutPageComponent } from './about-page/about-page.component';
-import { ContactPageComponent } from './contact-page/contact-page.component';
+import { PostsComponent } from './components/posts/posts.component'
+import { PostSingleComponent } from './components/post-single/post-single.component';
+import { PostService } from './services/post.service';
+import { AppRoutingModule } from './modules/app-routing.module';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { AboutPageComponent } from './components/about-page/about-page.component';
+import { ContactPageComponent } from './components/contact-page/contact-page.component';
 
 @NgModule({
   imports: [
@@ -23,10 +22,6 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    // mock
-    // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryDataService, { dataEncapsulation: false }
-    // )
   ],
   declarations: [
     AppComponent,

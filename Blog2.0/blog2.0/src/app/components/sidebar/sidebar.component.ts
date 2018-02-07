@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Reference } from '../reference';
-import { Picture } from '../picture';
+import { Reference } from './reference';
+import { Picture } from './picture';
+import { Title } from '@angular/platform-browser/src/browser/title'; //TODO what is this?
 
 @Component({
   selector: 'app-sidebar',
@@ -14,8 +15,10 @@ export class SidebarComponent implements OnInit {
   This page is created for my self-learning purposes. 
   <br> I am training frontend skills, so I will practice here 
   Angular & TypeScript with other tools and frameworks.`;
-  authorPicture: Picture = new Picture(".\\assets\\imgs\\author.jpg", "Author of ther blog");
-
+   authorPicture: Picture = {
+     url:".\\assets\\imgs\\author.jpg",
+     title:"Author of ther blog"
+   }
   references: Reference[] = [
     {
       url:"https://github.com/wroclawianka",

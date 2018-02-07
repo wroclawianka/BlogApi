@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.css', '../app.component.css', '../buttons.css']
+  styleUrls: ['./contact-page.component.css', '../../app.component.css', '../../../styles/buttons.css']
 })
 export class ContactPageComponent implements OnInit {
   header = "Contact";

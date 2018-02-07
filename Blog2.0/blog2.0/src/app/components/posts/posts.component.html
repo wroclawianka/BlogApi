@@ -3,19 +3,19 @@
         <div *ngFor="let post of posts">
             <div class="box post subgrid">
                 <div class="title">
-                    <a routerLink="/post/{{post.Id}}">
-                        <h2>{{post.Title}}</h2>
+                    <a routerLink="/post/{{post.id}}">
+                        <h2>{{post.title}}</h2>
                     </a>
                 </div>
-                <div *ngFor="let picture of post.Pictures" class="main-picture center">
-                    <a routerLink="/post/{{post.Id}}">
-                        <img *ngIf="picture.IsMain" class="grayed" src="{{picture.Url}}" alt="{{picture.Title}}">
+                <div class="main-picture center">
+                    <a routerLink="/post/{{post.id}}">
+                        <img class="grayed" src="{{post.mainPicture.url}}" alt="{{post.mainPicture.title}}">
                     </a>
                 </div>
                 <div class="preview text">
-                    <p>{{createPreview(post.Text)}}</p>
+                    <p>{{post.preview}}</p>
                 </div>
-                <a class="readMore" routerLink="/post/{{post.Id}}">
+                <a class="readMore" routerLink="/post/{{post.id}}">
                     <button class="action"><span>Read More</span></button>
                 </a>
             </div>

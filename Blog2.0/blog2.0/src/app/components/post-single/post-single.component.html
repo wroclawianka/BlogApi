@@ -1,19 +1,19 @@
 <div class="box post-page subgrid" [style.grid-template-areas]=this.contentLayout.getGridTemplate()>
     <div *ngIf="post" class="box content post subgrid">
         <div class="title">
-            <h2 *ngIf="!editmode">{{post.Title}}</h2>
-            <textarea *ngIf="editmode" class="editable editTitle" [(ngModel)]="post.Title"></textarea>
+            <h2 *ngIf="!editmode">{{post.title}}</h2>
+            <textarea *ngIf="editmode" class="editable editTitle" [(ngModel)]="post.title"></textarea>
         </div>
 
         <div class="text">
-            <p *ngIf="!editmode">{{post.Text}}</p>
-            <textarea *ngIf="editmode" class="editable editText" [(ngModel)]="post.Text"></textarea>
+            <p *ngIf="!editmode">{{post.text}}</p>
+            <textarea *ngIf="editmode" class="editable editText" [(ngModel)]="post.text"></textarea>
         </div>
-        <div *ngFor="let picture of post.Pictures" class="main-picture center">
-            <img *ngIf="picture.IsMain" class="" src="{{picture.Url}}" alt="{{picture.Title}}">
+        <div class="main-picture center">
+            <img src="{{post.mainPicture.url}}" alt="{{post.mainPicture.title}}">
         </div>
         <div class="gallery center">
-            <img *ngFor="let picture of post.Pictures" class="" src="{{picture.Url}}" alt="{{picture.Title}}">
+            <img *ngFor="let picture of post.pictures" class="" src="{{picture.url}}" alt="{{picture.title}}">
         </div>
         <div class="special-buttons">
             <div *ngIf="!editmode">
