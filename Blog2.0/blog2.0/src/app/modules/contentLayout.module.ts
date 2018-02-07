@@ -7,7 +7,7 @@ export class ContentLayout {
     widthOfChange : number;
     components : string[];
 
-    constructor(widthOfChange, components){
+    constructor(widthOfChange : number, components : string[]){
         this.widthOfChange = widthOfChange;
         this.components = components;
     }

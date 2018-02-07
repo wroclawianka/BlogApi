@@ -3,6 +3,8 @@ import * as _ from 'lodash';
 
 import { PostService } from '../../services/post.service';
 import { PostModelService } from '../../services/postModelService'
+import { Picture as PictureModelService} from '../../services/picture';
+
 import { Post } from './post';
 import { Picture } from './picture';
 
@@ -12,7 +14,11 @@ import { ContentLayout } from '../../modules/contentLayout.module';
 @Component({
   selector: 'app-posts',
   templateUrl: 'posts.component.html',
-  styleUrls: ['posts.component.css', '../../app.component.css', '../../../styles/buttons.css', '../../../styles/pictures.css']
+  styleUrls: [
+  'posts.component.css', 
+  '../../app.component.css', 
+  '../../../styles/buttons.css', 
+  '../../../styles/pictures.css']
 })
 export class PostsComponent implements OnInit {
   posts: Post[];
@@ -28,7 +34,7 @@ export class PostsComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   
-  onResize(event) {
+  onResize(event : Event) {
     this.contentLayout.getGridTemplate();
   }
   
@@ -38,24 +44,26 @@ export class PostsComponent implements OnInit {
   }
 
   // mapping methods
-  findMainPicture(pictures) {
+  findMainPicture(pictures : Picture[]) {
     return pictures[_.findIndex(pictures,(x:Picture) => x.isMain)];
+  }
+
+  findPreview(text : string){
+    return text.match(/(.{1,199}\w)\s/)[1] + '...'
   }
 
   mapToPosts(postsModelService : PostModelService[]) : Post[]{
     let posts : Post[] = [];
-
     for(let postModelService of postsModelService){
       posts.push(this.mapToPost(postModelService));
     }
-
     return posts;
   }
   
   mapToPost(postModelService: PostModelService): Post {
     let pictures: Picture[] = this.mapPictures(postModelService.Pictures);
     let mainPicture: Picture = this.findMainPicture(pictures)
-    let preview = postModelService.Text.match(/(.{1,199}\w)\s/)[1] + '...';
+    let preview = this.findPreview(postModelService.Text);
   
     return {
       id: postModelService.Id,
@@ -65,7 +73,7 @@ export class PostsComponent implements OnInit {
     };
   }
   
-  mapPictures(picturesList): Picture[] {
+  mapPictures(picturesList : PictureModelService[]): Picture[] {
     let pictures: Picture[] = [];
   
     picturesList.forEach(pic => {
@@ -75,7 +83,7 @@ export class PostsComponent implements OnInit {
     return pictures;
   }
   
-  mapPicture(pic): Picture {
+  mapPicture(pic : PictureModelService): Picture {
     return {
       url: pic.Url,
       title: pic.Title,

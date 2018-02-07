@@ -6,9 +6,12 @@ import * as _ from 'lodash';
 
 import { PostService } from '../../services/post.service';
 import { PostModelService } from '../../services/postModelService'
-import { Post } from './/post';
-import { ContentLayout } from '../../modules/contentLayout.module';
+import { Post } from './post';
 import { Picture } from './picture';
+import { ContentLayout } from '../../modules/contentLayout.module';
+
+import { Picture as PictureModelService} from '../../services/picture';
+
 
 @Component({
   selector: 'app-post-single',
@@ -32,7 +35,7 @@ export class PostSingleComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize(event : Event) {
     this.contentLayout.getGridTemplate();
   }
 
@@ -75,7 +78,7 @@ export class PostSingleComponent implements OnInit {
   }
   
   // mapping methods
-  findMainPicture(pictures) {
+  findMainPicture(pictures : Picture[]) : Picture {
     return pictures[_.findIndex(pictures,(x:Picture) => x.isMain)];
   }
   
@@ -92,8 +95,8 @@ export class PostSingleComponent implements OnInit {
     };
   }
   
-  mapPictures(picturesList): Picture[] {
-    let pictures: Picture[] = [];
+  mapPictures(picturesList : PictureModelService[]): Picture[] {
+    let pictures : Picture[] = [];
   
     picturesList.forEach(pic => {
       pictures.push(this.mapPicture(pic));
@@ -102,7 +105,7 @@ export class PostSingleComponent implements OnInit {
     return pictures;
   }
   
-  mapPicture(pic): Picture {
+  mapPicture(pic : PictureModelService): Picture {
     return {
       url: pic.Url,
       title: pic.Title,
@@ -121,8 +124,8 @@ export class PostSingleComponent implements OnInit {
     }
   }
   
-  mapPostModelServicePictures(picturesList: Picture[]) {
-    let pictures = [];
+  mapPostModelServicePictures(picturesList: Picture[]) : PictureModelService[]{
+    let pictures : PictureModelService[] = [];
   
     picturesList.forEach(pic => {
       pictures.push(this.mapPostModelServicePicture(pic));
@@ -131,7 +134,7 @@ export class PostSingleComponent implements OnInit {
     return pictures;
   }
   
-  mapPostModelServicePicture(pic) {
+  mapPostModelServicePicture(pic : Picture) : PictureModelService {
     return {
       Url: pic.url,
       Title: pic.title,
