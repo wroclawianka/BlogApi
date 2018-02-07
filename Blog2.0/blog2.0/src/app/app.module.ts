@@ -7,10 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
-import { PostsComponent } from './components/posts/posts.component'
-import { PostSingleComponent } from './components/post-single/post-single.component';
 import { PostService } from './services/post.service';
 import { AppRoutingModule } from './modules/app-routing.module';
+import { PostsComponent } from './components/posts/posts.component'
+import { PostSingleComponent } from './components/post-single/post-single.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
