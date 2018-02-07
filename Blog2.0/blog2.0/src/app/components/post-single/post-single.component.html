@@ -4,7 +4,6 @@
             <h2 *ngIf="!editmode">{{post.title}}</h2>
             <textarea *ngIf="editmode" class="editable editTitle" [(ngModel)]="post.title"></textarea>
         </div>
-
         <div class="text">
             <p *ngIf="!editmode">{{post.text}}</p>
             <textarea *ngIf="editmode" class="editable editText" [(ngModel)]="post.text"></textarea>
