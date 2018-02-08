@@ -18,6 +18,22 @@ button {
     justify-self: end;
 }
 
+button.save {
+    border: 1px solid rgb(71, 209, 71);
+}
+
+button.save:hover {
+    background-color: rgb(71, 209, 71);
+}
+
+button.delete {
+    border: 1px solid rgb(255, 51, 51);
+}
+
+button.delete:hover {
+    background-color: rgb(255, 51, 51);
+}
+
 .title {
     min-height: 150px;
     max-height: 100%;

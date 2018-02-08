@@ -16,7 +16,11 @@ import { Picture as PictureModelService} from '../../services/picture';
 @Component({
   selector: 'app-post-single',
   templateUrl: 'post-single.component.html',
-  styleUrls: ['post-single.component.css', '../../app.component.css', '../../../styles/buttons.css', '../../../styles/pictures.css']
+  styleUrls: [
+    '../../app.component.css',
+    '../../../styles/buttons.css',
+    '../../../styles/pictures.css',
+    'post-single.component.css']
 })
 export class PostSingleComponent implements OnInit {
   @Input() post: Post;
