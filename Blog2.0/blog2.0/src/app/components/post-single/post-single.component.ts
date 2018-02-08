@@ -6,11 +6,11 @@ import * as _ from 'lodash';
 
 import { PostService } from '../../services/post.service';
 import { PostModelService } from '../../services/postModelService'
+import { Picture as PictureModelService} from '../../services/picture';
+import { ContentLayout } from '../../modules/contentLayout.module';
 import { Post } from './post';
 import { Picture } from './picture';
-import { ContentLayout } from '../../modules/contentLayout.module';
-
-import { Picture as PictureModelService} from '../../services/picture';
+import { Messages } from '../../common/messages';
 
 
 @Component({
@@ -55,7 +55,7 @@ export class PostSingleComponent implements OnInit {
   }
   
   delete() {
-    let msg = "Are you sure that you want to delete the post?"
+    let msg = Messages.Delete;
     if (confirm(msg)) {
       let postModelService = this.mapToPostModelService(this.post);
       this.postService.deletePost(postModelService).subscribe(() => this.goBack());
