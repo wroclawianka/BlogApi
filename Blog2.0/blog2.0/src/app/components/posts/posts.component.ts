@@ -15,10 +15,11 @@ import { ContentLayout } from '../../modules/contentLayout.module';
   selector: 'app-posts',
   templateUrl: 'posts.component.html',
   styleUrls: [
-  'posts.component.css', 
-  '../../app.component.css', 
-  '../../../styles/buttons.css', 
-  '../../../styles/pictures.css']
+    '../../../styles/buttons.css', 
+    '../../../styles/pictures.css',
+    '../../app.component.css', 
+    'posts.component.css', 
+]
 })
 export class PostsComponent implements OnInit {
   posts: Post[];

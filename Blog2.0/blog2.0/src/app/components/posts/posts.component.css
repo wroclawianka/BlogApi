@@ -7,7 +7,13 @@
     /* subgrid */
     grid-template-areas: "title" "picture" "text" "readMore";
     /* akcent */
+    padding-bottom: 1.5em;
     border-bottom: 1px rgb(165, 165, 165) solid;
+}
+
+.content>div:last-child .post {
+    /* no border after last post */
+    border-bottom: initial;
 }
 
 .title h2:hover {
@@ -21,4 +27,8 @@
 
 .main-picture {
     grid-area: "picture";
+}
+
+.preview p {
+    margin-bottom: 0;
 }
