@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Reference } from './reference';
 import { Picture } from './picture';
-import { Title } from '@angular/platform-browser/src/browser/title'; //TODO what is this?
 
 @Component({
   selector: 'app-sidebar',
@@ -13,7 +12,7 @@ export class SidebarComponent implements OnInit {
   aboutMeHeader = "About me";
   aboutMeContent = `Welcome to my blog template project. 
   This page is created for my self-learning purposes. 
-  <br> I am training frontend skills, so I will practice here 
+  <br> I am training frontend skills and I will practice here 
   Angular & TypeScript with other tools and frameworks.`;
    authorPicture: Picture = {
      url:".\\assets\\imgs\\author.jpg",
