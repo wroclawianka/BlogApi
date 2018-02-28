@@ -22,6 +22,5 @@ export class AppComponent {
         this.playgroundMode = !this.playgroundMode;
         //change class of playground
         (this.playgroundMode) ? $('.playground').addClass("enabled") : $('.playground').removeClass("enabled");
-        console.log(this.playgroundMode)
     }
 }
