@@ -177,14 +177,11 @@ a {
     align-items: center;
     margin: 10px;
     font-size: 0.8em;
+    color: rgb(165, 165, 165);
 }
 
 .playground>* {
     margin: 10px;
-}
-
-.playground.disabled {
-    color: rgb(165, 165, 165);
 }
 
 .playground.enabled {
