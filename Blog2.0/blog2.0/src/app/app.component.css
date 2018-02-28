@@ -168,3 +168,25 @@ a {
 .text {
     grid-area: text;
 }
+
+.playground {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    font-size: 0.8em;
+}
+
+.playground>* {
+    margin: 10px;
+}
+
+.playground.disabled {
+    color: rgb(165, 165, 165);
+}
+
+.playground.enabled {
+    color: #2196F3;
+}
