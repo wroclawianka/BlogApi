@@ -14,7 +14,7 @@
         <div class="gallery center">
             <img *ngFor="let picture of post.pictures" class="" src="{{picture.url}}" alt="{{picture.title}}">
         </div>
-        <div class="special-buttons">
+        <div *ngIf="this.playgroundMode" class="special-buttons">
             <div *ngIf="!editmode">
                 <button class="edit sm-btn" (click)="edit()"><span>Edit</span></button>
                 <button class="delete sm-btn" (click)="delete()"><span>Delete</span></button>

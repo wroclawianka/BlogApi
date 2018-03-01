@@ -7,14 +7,14 @@ import * as _ from 'lodash';
 import { PostService } from '../../services/post.service';
 import { PostModelService } from '../../services/postModelService'
 import { Picture as PictureModelService} from '../../services/picture';
+import { PlaygroundService } from '../../services/playground/playground.service';
 import { ContentLayout } from '../../modules/contentLayout.module';
 import { Post } from './post';
 import { Picture } from './picture';
-import { Messages } from '../../common/messages';
 
 
 @Component({
-  selector: 'app-post-single',
+  selector: 'app-post-single', 
   templateUrl: 'post-single.component.html',
   styleUrls: [
     '../../app.component.css',
@@ -22,20 +22,25 @@ import { Messages } from '../../common/messages';
     '../../../styles/pictures.css',
     'post-single.component.css']
 })
+
 export class PostSingleComponent implements OnInit {
   @Input() post: Post;
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-    private location: Location
+    private location: Location,
+    private playground : PlaygroundService,
   ) { }
   contentLayout: ContentLayout = new ContentLayout(1000, ["content", "sidebar"]);
   editmode: boolean;
   oldPost: Post;
+  playgroundMode: boolean;
+ 
 
   ngOnInit(): void {
     this.getPost();
     this.contentLayout.getGridTemplate();
+    this.playground._playgroundMode.subscribe(playgroundMode => this.playgroundMode = playgroundMode);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -55,7 +60,7 @@ export class PostSingleComponent implements OnInit {
   }
   
   delete() {
-    let msg = Messages.Delete;
+    let msg = "Are you sure that you want to delete the post?"
     if (confirm(msg)) {
       let postModelService = this.mapToPostModelService(this.post);
       this.postService.deletePost(postModelService).subscribe(() => this.goBack());

@@ -1,8 +1,10 @@
 import { Component, HostListener } from '@angular/core';
 import * as $ from 'jquery';
+import { PlaygroundService } from './services/playground/playground.service';
 
 @Component({
     selector: 'app-root',
+    providers: [PlaygroundService],
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.css', '../styles/buttons.css', '../styles/switch.css']
 })
@@ -11,16 +13,21 @@ export class AppComponent {
     titleSecond = 'and Czech Republic';
     subtitle = 'with my eyes';
     footer = 'All Rights Reserved, Design and code by Dorota Zelga';
-    playgroundMode = false;
+    playgroundMode: boolean;
+    message : string;
+
+    constructor(private playground : PlaygroundService){ }
 
     scrollTop() {
         $('html, body').animate({ scrollTop: 0 }, 800);
     }
-
+    
     toggleMode() {
-        //toggle playground mode
-        this.playgroundMode = !this.playgroundMode;
-        //change class of playground
+        (this.playgroundMode) ? this.playground.playgroundOff() : this.playground.playgroundOn();
         (this.playgroundMode) ? $('.playground').addClass("enabled") : $('.playground').removeClass("enabled");
+    }
+
+    ngOnInit(){
+        this.playground._playgroundMode.subscribe(playgroundMode => this.playgroundMode = playgroundMode);
     }
 }
