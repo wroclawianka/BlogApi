@@ -69,20 +69,20 @@ export class PostSingleComponent implements OnInit {
   
   edit() {
     this.oldPost = Object.assign({}, this.post);
-    this.toggleEdit();
+    this.toggleEditable();
   }
 
   save() {
     let postModelService = this.mapToPostModelService(this.post);
-    this.postService.updatePost(postModelService).subscribe(() => this.toggleEdit());
+    this.postService.updatePost(postModelService).subscribe(() => this.toggleEditable());
   }
   
   cancel() {
     this.post = Object.assign({}, this.oldPost);
-    this.toggleEdit();
+    this.toggleEditable();
   }
   
-  toggleEdit() {
+  toggleEditable() {
     this.editable = !this.editable;
   }
   
