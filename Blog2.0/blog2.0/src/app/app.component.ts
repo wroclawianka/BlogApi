@@ -24,7 +24,6 @@ export class AppComponent {
     
     toggleMode() {
         (this.playgroundMode) ? this.playground.playgroundOff() : this.playground.playgroundOn();
-        (this.playgroundMode) ? $('.playground').addClass("enabled") : $('.playground').removeClass("enabled");
     }
 
     ngOnInit(){

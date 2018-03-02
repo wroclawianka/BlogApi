@@ -16,10 +16,11 @@
         {{footer | uppercase }}
         <button class="scroll-top sm-btn" (click)="scrollTop()" title="Go to top">Top</button>
     </div>
-    <div class="playground">
+    <div [ngClass]="playgroundMode?'enabled playground':'playground'">
         <label class="switch">
                     <input type="checkbox">
                     <span class="slider round" (click)="toggleMode()"></span>
                 </label> {{ "Playground" | uppercase }}
     </div>
 </div>
+<!--<button [ngClass]="type === 'mybutton' ? namespace + '-mybutton' : ''"></button>-->
