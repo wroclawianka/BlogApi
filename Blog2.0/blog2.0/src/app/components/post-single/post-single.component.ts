@@ -7,7 +7,7 @@ import * as _ from 'lodash';
 import { PostService } from '../../services/post.service';
 import { PostModelService } from '../../services/postModelService'
 import { Picture as PictureModelService} from '../../services/picture';
-import { PlaygroundService } from '../../services/playground/playground.service';
+import { EditModeService } from '../../services/editmode/editmode.service';
 import { ContentLayout } from '../../modules/contentLayout.module';
 import { Post } from './post';
 import { Picture } from './picture';
@@ -29,18 +29,18 @@ export class PostSingleComponent implements OnInit {
     private route: ActivatedRoute,
     private postService: PostService,
     private location: Location,
-    private playground : PlaygroundService,
+    private editmodeService : EditModeService,
   ) { }
   contentLayout: ContentLayout = new ContentLayout(1000, ["content", "sidebar"]);
-  editmode: boolean;
+  editable: boolean;
   oldPost: Post;
-  playgroundMode: boolean;
+  editMode: boolean;
  
 
   ngOnInit(): void {
     this.getPost();
     this.contentLayout.getGridTemplate();
-    this.playground._playgroundMode.subscribe(playgroundMode => this.playgroundMode = playgroundMode);
+    this.editmodeService._editMode.subscribe((editMode : boolean) => this.editMode = editMode);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -83,7 +83,7 @@ export class PostSingleComponent implements OnInit {
   }
   
   toggleEdit() {
-    this.editmode = !this.editmode;
+    this.editable = !this.editable;
   }
   
   // mapping methods

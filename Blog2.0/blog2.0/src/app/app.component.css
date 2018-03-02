@@ -169,7 +169,7 @@ a {
     grid-area: text;
 }
 
-.playground {
+.editMode {
     position: absolute;
     right: 0px;
     top: 0px;
@@ -180,10 +180,10 @@ a {
     color: rgb(165, 165, 165);
 }
 
-.playground>* {
+.editMode>* {
     margin: 10px;
 }
 
-.playground.enabled {
+.editMode.enabled {
     color: #2196F3;
 }

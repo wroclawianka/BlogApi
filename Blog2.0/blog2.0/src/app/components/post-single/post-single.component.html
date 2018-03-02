@@ -1,12 +1,12 @@
 <div class="box post-page subgrid" [style.grid-template-areas]=this.contentLayout.getGridTemplate()>
     <div *ngIf="post" class="box content post subgrid">
         <div class="title">
-            <h2 *ngIf="!editmode">{{post.title}}</h2>
-            <textarea *ngIf="editmode" class="editable editTitle" [(ngModel)]="post.title"></textarea>
+            <h2 *ngIf="!editable">{{post.title}}</h2>
+            <textarea *ngIf="editable" class="editable editTitle" [(ngModel)]="post.title"></textarea>
         </div>
         <div class="text">
-            <p *ngIf="!editmode">{{post.text}}</p>
-            <textarea *ngIf="editmode" class="editable editText" [(ngModel)]="post.text"></textarea>
+            <p *ngIf="!editable">{{post.text}}</p>
+            <textarea *ngIf="editable" class="editable editText" [(ngModel)]="post.text"></textarea>
         </div>
         <div class="main-picture center">
             <img src="{{post.mainPicture.url}}" alt="{{post.mainPicture.title}}">
@@ -14,12 +14,12 @@
         <div class="gallery center">
             <img *ngFor="let picture of post.pictures" class="" src="{{picture.url}}" alt="{{picture.title}}">
         </div>
-        <div *ngIf="this.playgroundMode" class="special-buttons">
-            <div *ngIf="!editmode">
+        <div *ngIf="this.editMode" class="special-buttons">
+            <div *ngIf="!editable">
                 <button class="edit sm-btn" (click)="edit()"><span>Edit</span></button>
                 <button class="delete sm-btn" (click)="delete()"><span>Delete</span></button>
             </div>
-            <div *ngIf="editmode">
+            <div *ngIf="editable">
                 <button class="save sm-btn" (click)="save()"><span>Save</span></button>
                 <button class="cancel sm-btn" (click)="cancel()"><span>Cancel</span></button>
             </div>
