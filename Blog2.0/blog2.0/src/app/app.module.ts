@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
-import { PostService } from './services/post.service';
+import { PostService } from './services/post/post.service';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { PostsComponent } from './components/posts/posts.component'
 import { PostSingleComponent } from './components/post-single/post-single.component';

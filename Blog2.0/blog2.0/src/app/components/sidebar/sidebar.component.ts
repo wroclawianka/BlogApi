@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Reference } from './reference';
-import { Picture } from './picture';
+import { Reference } from './reference.model';
+import { Picture } from './picture.model';
 
 @Component({
   selector: 'app-sidebar',

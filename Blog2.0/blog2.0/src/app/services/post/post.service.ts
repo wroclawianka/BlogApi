@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { PostModelService } from './postModelService';
+import { PostModelService } from './postModelService.model';
 
 import { identifierModuleUrl } from '@angular/compiler';
 

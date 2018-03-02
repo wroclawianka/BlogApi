@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Picture } from './picture';
+import { Picture } from './picture.model';
 
 @Component({
   selector: 'app-about-page',

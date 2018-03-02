@@ -4,13 +4,13 @@ import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 import * as _ from 'lodash';
 
-import { PostService } from '../../services/post.service';
-import { PostModelService } from '../../services/postModelService'
-import { Picture as PictureModelService} from '../../services/picture';
+import { PostService } from '../../services/post/post.service';
+import { PostModelService } from '../../services/post/postModelService.model'
+import { Picture as PictureModelService} from '../../services/post/picture.model';
 import { EditModeService } from '../../services/editmode/editmode.service';
 import { ContentLayout } from '../../modules/contentLayout.module';
-import { Post } from './post';
-import { Picture } from './picture';
+import { Post } from './post.model';
+import { Picture } from './picture.model';
 
 
 @Component({
