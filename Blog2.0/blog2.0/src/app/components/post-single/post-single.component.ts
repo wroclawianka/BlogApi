@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 import * as _ from 'lodash';
+import * as $ from 'jquery';
 
 import { PostService } from '../../services/post/post.service';
 import { PostModelService } from '../../services/post/postModelService.model'
@@ -40,7 +41,7 @@ export class PostSingleComponent implements OnInit {
   ngOnInit(): void {
     this.getPost();
     this.contentLayout.getGridTemplate();
-    this.editmodeService._editMode.subscribe((editMode : boolean) => this.editMode = editMode);
+    this.editmodeService._editMode.subscribe((editMode: boolean) => this.editMode = this.checkIfPostIsUnderEdition(editMode));
   }
 
   @HostListener('window:resize', ['$event'])
@@ -54,6 +55,14 @@ export class PostSingleComponent implements OnInit {
     .subscribe((postModelService: PostModelService) => this.post = this.mapToPost(postModelService));
   }
   
+  checkIfPostIsUnderEdition(editMode: boolean) {
+    if (this.editable && !editMode) {
+      var modal = $('#warning-modal');
+      modal.css({ display: "block" });
+    }
+    return editMode;
+  }
+
   // button methods
   goBack(): void {
     this.location.back();
@@ -78,17 +87,35 @@ export class PostSingleComponent implements OnInit {
   }
   
   cancel() {
+    this.discardChanges();
+  }
+
+  toggleEditable() {
+    this.editable = !this.editable;
+  }
+
+  discardChanges() {
     this.post = Object.assign({}, this.oldPost);
     this.toggleEditable();
   }
   
-  toggleEditable() {
-    this.editable = !this.editable;
+  confirmLeavingEdition() {
+    this.discardChanges();
+    this.closeModal();
   }
   
+  denyLeavingEdition() {
+    this.editmodeService.editModeOn();
+    this.closeModal();
+  }
+  
+  closeModal() {
+    $('#warning-modal').css({ display: "none" });
+  }
+
   // mapping methods
-  findMainPicture(pictures : Picture[]) : Picture {
-    return pictures[_.findIndex(pictures,(x:Picture) => x.isMain)];
+  findMainPicture(pictures: Picture[]): Picture {
+    return pictures[_.findIndex(pictures, (x: Picture) => x.isMain)];
   }
   
   mapToPost(postModelService: PostModelService): Post {
@@ -104,8 +131,8 @@ export class PostSingleComponent implements OnInit {
     };
   }
   
-  mapPictures(picturesList : PictureModelService[]): Picture[] {
-    let pictures : Picture[] = [];
+  mapPictures(picturesList: PictureModelService[]): Picture[] {
+    let pictures: Picture[] = [];
   
     picturesList.forEach(pic => {
       pictures.push(this.mapPicture(pic));
@@ -114,7 +141,7 @@ export class PostSingleComponent implements OnInit {
     return pictures;
   }
   
-  mapPicture(pic : PictureModelService): Picture {
+  mapPicture(pic: PictureModelService): Picture {
     return {
       url: pic.Url,
       title: pic.Title,
@@ -133,8 +160,8 @@ export class PostSingleComponent implements OnInit {
     }
   }
   
-  mapPostModelServicePictures(picturesList: Picture[]) : PictureModelService[]{
-    let pictures : PictureModelService[] = [];
+  mapPostModelServicePictures(picturesList: Picture[]): PictureModelService[] {
+    let pictures: PictureModelService[] = [];
   
     picturesList.forEach(pic => {
       pictures.push(this.mapPostModelServicePicture(pic));
@@ -143,7 +170,7 @@ export class PostSingleComponent implements OnInit {
     return pictures;
   }
   
-  mapPostModelServicePicture(pic : Picture) : PictureModelService {
+  mapPostModelServicePicture(pic: Picture): PictureModelService {
     return {
       Url: pic.url,
       Title: pic.title,

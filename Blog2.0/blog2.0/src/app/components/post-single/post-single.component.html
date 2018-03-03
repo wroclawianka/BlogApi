@@ -29,4 +29,11 @@
     <div class="box sidebar">
         <app-sidebar></app-sidebar>
     </div>
-</div>
+    <!-- The Modal -->
+    <div id="warning-modal" class="modal">
+        <div class="modal-content">
+            <p>Leaving edit mode you will lost your changes. Do you want to leave?</p>
+            <button class="sm-btn" (click)="confirmLeavingEdition()">Yes</button>
+            <button class="sm-btn" (click)="denyLeavingEdition()">No</button>
+        </div>
+    </div>
