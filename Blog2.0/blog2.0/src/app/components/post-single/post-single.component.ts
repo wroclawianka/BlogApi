@@ -3,45 +3,66 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 import * as _ from 'lodash';
+import * as $ from 'jquery';
 
-import { PostService } from '../../services/post.service';
-import { PostModelService } from '../../services/postModelService'
-import { Post } from './/post';
+import { PostService } from '../../services/post/post.service';
+import { PostModelService } from '../../services/post/postModelService.model'
+import { Picture as PictureModelService} from '../../services/post/picture.model';
+import { EditModeService } from '../../services/editmode/editmode.service';
 import { ContentLayout } from '../../modules/contentLayout.module';
-import { Picture } from './picture';
+import { Post } from './post.model';
+import { Picture } from './picture.model';
+
 
 @Component({
-  selector: 'app-post-single',
+  selector: 'app-post-single', 
   templateUrl: 'post-single.component.html',
-  styleUrls: ['post-single.component.css', '../../app.component.css', '../../../styles/buttons.css', '../../../styles/pictures.css']
+  styleUrls: [
+    '../../app.component.css',
+    '../../../styles/buttons.css',
+    '../../../styles/pictures.css',
+    'post-single.component.css']
 })
+
 export class PostSingleComponent implements OnInit {
   @Input() post: Post;
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-    private location: Location
+    private location: Location,
+    private editmodeService : EditModeService,
   ) { }
   contentLayout: ContentLayout = new ContentLayout(1000, ["content", "sidebar"]);
-  editmode: boolean;
+  editable: boolean;
   oldPost: Post;
+  editMode: boolean;
+ 
 
   ngOnInit(): void {
     this.getPost();
     this.contentLayout.getGridTemplate();
+    this.editmodeService._editMode.subscribe((editMode: boolean) => this.editMode = this.checkIfPostIsUnderEdition(editMode));
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize(event : Event) {
     this.contentLayout.getGridTemplate();
   }
 
   getPost(): void {
-    const id = +this.route.snapshot.paramMap.get('Id');
+    const id = +this.route.snapshot.paramMap.get('id');
     this.postService.getPost(id)
     .subscribe((postModelService: PostModelService) => this.post = this.mapToPost(postModelService));
   }
   
+  checkIfPostIsUnderEdition(editMode: boolean) {
+    if (this.editable && !editMode) {
+      var modal = $('#warning-modal');
+      modal.css({ display: "block" });
+    }
+    return editMode;
+  }
+
   // button methods
   goBack(): void {
     this.location.back();
@@ -57,26 +78,44 @@ export class PostSingleComponent implements OnInit {
   
   edit() {
     this.oldPost = Object.assign({}, this.post);
-    this.toggleEdit();
+    this.toggleEditable();
   }
 
   save() {
     let postModelService = this.mapToPostModelService(this.post);
-    this.postService.updatePost(postModelService).subscribe(() => this.toggleEdit());
+    this.postService.updatePost(postModelService).subscribe(() => this.toggleEditable());
   }
   
   cancel() {
+    this.discardChanges();
+  }
+
+  toggleEditable() {
+    this.editable = !this.editable;
+  }
+
+  discardChanges() {
     this.post = Object.assign({}, this.oldPost);
-    this.toggleEdit();
+    this.toggleEditable();
   }
   
-  toggleEdit() {
-    this.editmode = !this.editmode;
+  confirmLeavingEdition() {
+    this.discardChanges();
+    this.closeModal();
   }
   
+  denyLeavingEdition() {
+    this.editmodeService.editModeOn();
+    this.closeModal();
+  }
+  
+  closeModal() {
+    $('#warning-modal').css({ display: "none" });
+  }
+
   // mapping methods
-  findMainPicture(pictures) {
-    return pictures[_.findIndex(pictures,(x:Picture) => x.isMain)];
+  findMainPicture(pictures: Picture[]): Picture {
+    return pictures[_.findIndex(pictures, (x: Picture) => x.isMain)];
   }
   
   mapToPost(postModelService: PostModelService): Post {
@@ -92,7 +131,7 @@ export class PostSingleComponent implements OnInit {
     };
   }
   
-  mapPictures(picturesList): Picture[] {
+  mapPictures(picturesList: PictureModelService[]): Picture[] {
     let pictures: Picture[] = [];
   
     picturesList.forEach(pic => {
@@ -102,7 +141,7 @@ export class PostSingleComponent implements OnInit {
     return pictures;
   }
   
-  mapPicture(pic): Picture {
+  mapPicture(pic: PictureModelService): Picture {
     return {
       url: pic.Url,
       title: pic.Title,
@@ -121,8 +160,8 @@ export class PostSingleComponent implements OnInit {
     }
   }
   
-  mapPostModelServicePictures(picturesList: Picture[]) {
-    let pictures = [];
+  mapPostModelServicePictures(picturesList: Picture[]): PictureModelService[] {
+    let pictures: PictureModelService[] = [];
   
     picturesList.forEach(pic => {
       pictures.push(this.mapPostModelServicePicture(pic));
@@ -131,7 +170,7 @@ export class PostSingleComponent implements OnInit {
     return pictures;
   }
   
-  mapPostModelServicePicture(pic) {
+  mapPostModelServicePicture(pic: Picture): PictureModelService {
     return {
       Url: pic.url,
       Title: pic.title,

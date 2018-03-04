@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { PostModelService } from './postModelService';
+import { PostModelService } from './postModelService.model';
+
 import { identifierModuleUrl } from '@angular/compiler';
 
 const httpOptions = {
@@ -15,12 +16,7 @@ const httpOptions = {
 @Injectable()
 export class PostService {
 
-    private enableAPImode : boolean = true;
-    private postsUrl = this.findUrl();
-    private findUrl() : string{
-        var apiUrl = 'http://localhost:11709/api/blogpost';
-        var mockUrl = 'api/posts';
-        return  this.enableAPImode ? apiUrl : mockUrl;}
+    private postsUrl = 'http://localhost:11709/api/blogpost';
 
     constructor(
         private http: HttpClient) {

@@ -29,21 +29,37 @@
 
 /* header */
 
+.header {
+    width: 255px;
+    justify-self: center;
+}
+
 .header * {
     text-align: center;
     margin: 0 auto;
+    text-align: right;
 }
 
 .header .main-title {
     font-size: 3.5em;
-    /* non-anchor behaviour */
-    color: inherit;
-    text-decoration: none;
+}
+
+.header .second-line {
+    font-size: 0.9em;
+    margin-top: -10px;
 }
 
 .header .subtitle {
     color: rgb(165, 165, 165);
     font-style: italic;
+}
+
+.header .link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.header .lighter {
     font-weight: lighter;
 }
 
@@ -151,4 +167,23 @@ a {
 
 .text {
     grid-area: text;
+}
+
+.editMode {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    font-size: 0.8em;
+    color: rgb(165, 165, 165);
+}
+
+.editMode>* {
+    margin: 10px;
+}
+
+.editMode.enabled {
+    color: #2196F3;
 }

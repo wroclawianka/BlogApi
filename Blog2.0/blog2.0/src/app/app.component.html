@@ -1,9 +1,10 @@
 <div class="container">
     <div class="box header">
         <a routerLink="/">
-            <h1 class="main-title">{{title}}</h1>
+            <h1 class="main-title link">{{title}}</h1>
+            <h2 class="second-line lighter link">{{ titleSecond | uppercase}}</h2>
         </a>
-        <h4 class="subtitle">{{subtitle}}</h4>
+        <h5 class="subtitle lighter">{{subtitle}}</h5>
     </div>
     <div class="box nav">
         <app-navigation></app-navigation>
@@ -14,5 +15,11 @@
     <div class="box footer">
         {{footer | uppercase }}
         <button class="scroll-top sm-btn" (click)="scrollTop()" title="Go to top">Top</button>
+    </div>
+    <div [ngClass]="editMode?'enabled editMode':'editMode'">
+        <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round" (click)="toggleMode()"></span>
+                </label> Edit Mode
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Picture }  from './picture';
+import { Picture }  from './picture.model';
 
 export class PostModelService {
     Id: number;
