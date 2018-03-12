@@ -8,6 +8,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { PostModelService } from './postModelService.model';
 
 import { identifierModuleUrl } from '@angular/compiler';
+import { environment } from '../../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,11 +17,10 @@ const httpOptions = {
 @Injectable()
 export class PostService {
 
-    private postsUrl = 'http://localhost:11709/api/blogpost';
+    private postsUrl = `${environment.apiEndpoint}blogpost`;
 
     constructor(
-        private http: HttpClient) {
-    }
+        private http: HttpClient) {}
 
     getPosts(): Observable<PostModelService[]> {
         return this.http.get<PostModelService[]>(`${this.postsUrl}/get`);
