@@ -1,7 +1,6 @@
-# Blog 
-## [Prague with my eyes](http://dorotazelga.aspnet.pl/)
-Project of simple lifestyle and travel blog created for Angular and TypeScript learning. 
 
+# [Prague with my eyes](http://dorotazelga.aspnet.pl/)
+Project of simple lifestyle and travel blog created for Angular and TypeScript learning. 
 
 ## Local version
 ### Development server
