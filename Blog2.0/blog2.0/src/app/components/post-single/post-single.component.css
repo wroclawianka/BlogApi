@@ -114,5 +114,5 @@ button.delete:hover {
     width: 40%;
     /* Could be more or less, depending on screen size */
     text-align: center;
-    padding: 50px 0px;
+    padding: 50px 30px;
 }
