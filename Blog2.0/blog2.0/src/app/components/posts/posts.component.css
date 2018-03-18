@@ -11,13 +11,16 @@
     border-bottom: 1px rgb(165, 165, 165) solid;
 }
 
-.content>div:last-child .post {
-    /* no border after last post */
-    border-bottom: initial;
+.title {
+    grid-area: title;
 }
 
-.title h2:hover {
-    text-decoration: underline;
+.text {
+    grid-area: text;
+}
+
+.main-picture {
+    grid-area: picture;
 }
 
 .readMore {
@@ -25,8 +28,21 @@
     justify-self: end;
 }
 
-.main-picture {
-    grid-area: "picture";
+.title {
+    text-align: center;
+}
+
+.text {
+    text-align: justify;
+}
+
+.content>div:last-child .post {
+    /* no border after last post */
+    border-bottom: initial;
+}
+
+.title h2:hover {
+    text-decoration: underline;
 }
 
 .preview p {

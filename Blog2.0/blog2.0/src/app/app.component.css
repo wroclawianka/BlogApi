@@ -116,7 +116,6 @@ a {
 /* footer */
 
 .footer {
-    grid-area: footer;
     align-self: end;
     border-top: 1px solid black;
     text-align: center;
@@ -141,16 +140,12 @@ a {
     grid-area: nav;
 }
 
-.sidebar {
-    grid-area: sidebar;
-}
-
 .main {
     grid-area: main;
 }
 
-.content {
-    grid-area: content;
+.footer {
+    grid-area: footer;
 }
 
 
@@ -159,14 +154,6 @@ a {
 .subgrid {
     display: grid;
     grid-gap: 10px;
-}
-
-.title {
-    grid-area: title;
-}
-
-.text {
-    grid-area: text;
 }
 
 .editMode {

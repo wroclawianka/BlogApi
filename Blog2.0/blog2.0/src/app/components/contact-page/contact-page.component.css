@@ -3,3 +3,11 @@
 .contact-page {
     grid-template-areas: "title" "text";
 }
+
+.title {
+    grid-area: title;
+}
+
+.text {
+    grid-area: text;
+}
