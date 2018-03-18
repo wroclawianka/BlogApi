@@ -1,6 +1,15 @@
 .main-page {
     /* main page grid */
     grid-template-columns: 3fr 1fr;
+    grid-template-areas: "content" "sidebar";
+}
+
+.content {
+    grid-area: content;
+}
+
+.sidebar {
+    grid-area: sidebar;
 }
 
 .post {
@@ -15,12 +24,12 @@
     grid-area: title;
 }
 
-.text {
-    grid-area: text;
-}
-
 .main-picture {
     grid-area: picture;
+}
+
+.text {
+    grid-area: text;
 }
 
 .readMore {
