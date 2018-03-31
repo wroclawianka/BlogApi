@@ -21,6 +21,7 @@ import { Picture } from './picture.model';
     '../../app.component.css',
     '../../../styles/buttons.css',
     '../../../styles/pictures.css',
+    '../../../styles/modal.css',
     'post-single.component.css']
 })
 
@@ -57,8 +58,7 @@ export class PostSingleComponent implements OnInit {
   
   checkIfPostIsUnderEdition(editMode: boolean) {
     if (this.editable && !editMode) {
-      var modal = $('#warning-modal');
-      modal.css({ display: "block" });
+      $('#changes-modal').css({ display: "block" });
     }
     return editMode;
   }
@@ -67,13 +67,15 @@ export class PostSingleComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  showDeleteModal(){
+    $('#delete-modal').css({ display: "block" });
+  }
   
   delete() {
-    let msg = "Are you sure that you want to delete the post?"
-    if (confirm(msg)) {
       let postModelService = this.mapToPostModelService(this.post);
       this.postService.deletePost(postModelService).subscribe(() => this.goBack());
-    }
+      this.closeModal();
   }
   
   edit() {
@@ -104,13 +106,12 @@ export class PostSingleComponent implements OnInit {
     this.closeModal();
   }
   
-  denyLeavingEdition() {
-    this.editmodeService.editModeOn();
-    this.closeModal();
-  }
-  
   closeModal() {
-    $('#warning-modal').css({ display: "none" });
+    $('.modal').css({ display: "none" });
+  }
+
+  closeInfo(){
+    $('.info').css({ display: "none" });    
   }
 
   // mapping methods

@@ -34,7 +34,6 @@ export class PostsComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  
   onResize(event : Event) {
     this.contentLayout.getGridTemplate();
   }

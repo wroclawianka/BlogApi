@@ -12,12 +12,13 @@
             <img src="{{post.mainPicture.url}}" alt="{{post.mainPicture.title}}">
         </div>
         <div class="gallery center">
+            <h3>Gallery</h3>
             <img *ngFor="let picture of post.pictures" class="" src="{{picture.url}}" alt="{{picture.title}}">
         </div>
         <div *ngIf="this.editMode" class="special-buttons">
             <div *ngIf="!editable">
                 <button class="edit sm-btn" (click)="edit()"><span>Edit</span></button>
-                <button class="delete sm-btn" (click)="delete()"><span>Delete</span></button>
+                <button class="delete sm-btn" (click)="showDeleteModal()"><span>Delete</span></button>
             </div>
             <div *ngIf="editable">
                 <button class="save sm-btn" (click)="save()"><span>Save</span></button>
@@ -29,11 +30,28 @@
     <div class="box sidebar">
         <app-sidebar></app-sidebar>
     </div>
-    <!-- The Modal -->
-    <div id="warning-modal" class="modal">
+    <!-- modal - changes not saved  -->
+    <div id="changes-modal" class="modal">
         <div class="modal-content">
-            <p>Leaving edit mode you will lost your changes. Do you want to leave?</p>
-            <button class="sm-btn warning yes" (click)="confirmLeavingEdition()">Yes</button>
-            <button class="sm-btn warning no" (click)="denyLeavingEdition()">No</button>
+            <p>Your changes was not saved</p>
+            <button class="sm-btn modal-btn warning yes" (click)="confirmLeavingEdition()">OK</button>
         </div>
     </div>
+    <!-- modal - post delete -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure that you want to delete the post?</p>
+            <button class="sm-btn modal-btn long-btn warning yes" (click)="delete()">Yes, delete</button>
+            <button class="sm-btn modal-btn long-btn warning no" (click)="closeModal()">No, do not</button>
+        </div>
+    </div>
+    <!-- Info -->
+    <div id="leaving-edit-info" class="info" *ngIf="editable">
+        <div class="content">
+            <p>Leaving edit mode without save will cause lost of the changes</p>
+        </div>
+        <div class="close">
+            <i class="fa fa-times" aria-hidden="true" (click)=closeInfo()></i>
+        </div>
+    </div>
+</div>

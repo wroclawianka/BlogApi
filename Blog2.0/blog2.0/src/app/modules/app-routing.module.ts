@@ -6,8 +6,7 @@ import { AboutPageComponent } from './../components/about-page/about-page.compon
 import { ContactPageComponent } from './../components/contact-page/contact-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/posts', pathMatch: 'full' },
-  { path: 'posts', component: PostsComponent },
+  { path: '', component: PostsComponent },
   { path: 'post/:id', component: PostSingleComponent },
   { path: 'about-blog', component: AboutPageComponent },
   { path: 'contact', component: ContactPageComponent },

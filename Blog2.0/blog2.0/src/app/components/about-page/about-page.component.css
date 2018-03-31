@@ -1,11 +1,4 @@
-/* grid */
-
-.about-page {
-    grid-template-areas: "title" "image" "text" "author";
-}
-
 .author {
-    grid-area: author;
     justify-self: end;
     align-self: baseline;
 }
@@ -16,4 +9,27 @@
 
 .about-image img {
     width: 95%;
+}
+
+
+/* grid */
+
+.about-page {
+    grid-template-areas: "title" "image" "text" "author";
+}
+
+.title {
+    grid-area: title;
+}
+
+.text {
+    grid-area: text;
+}
+
+.author {
+    grid-area: author;
+}
+
+.about-image {
+    grid-area: image;
 }

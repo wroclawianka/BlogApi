@@ -1,3 +1,32 @@
+.post {
+    grid-template-areas: "title" "main-picture" "text" "gallery" "goback" "special-buttons";
+}
+
+.title {
+    grid-area: title;
+}
+
+.main-picture {
+    grid-area: main-picture;
+}
+
+.text {
+    grid-area: text;
+}
+
+.gallery {
+    grid-area: gallery;
+}
+
+.goback {
+    grid-area: goback;
+}
+
+.special-buttons {
+    grid-area: special-buttons;
+}
+
+
 /* grid */
 
 .post-page {
@@ -6,13 +35,42 @@
     grid-template-areas: "content" "sidebar";
 }
 
-.post {
-    grid-template-areas: "title" "main-picture" "text" "gallery" "goback" "special-buttons";
+.content {
+    grid-area: content;
 }
 
-.goback {
-    grid-area: goback;
+.sidebar {
+    grid-area: sidebar;
 }
+
+
+/* content */
+
+.title {
+    min-height: 150px;
+    max-height: 100%;
+    box-sizing: border-box;
+}
+
+.text {
+    min-height: 300px;
+    max-height: 100%;
+    box-sizing: border-box;
+}
+
+
+/* gallery */
+
+.gallery img {
+    padding: 0.1em;
+    margin: 0 2px;
+    object-fit: cover;
+    width: 330px;
+    height: 330px;
+}
+
+
+/* buttons */
 
 button {
     justify-self: end;
@@ -34,27 +92,8 @@ button.delete:hover {
     background-color: rgb(255, 51, 51);
 }
 
-.title {
-    min-height: 150px;
-    max-height: 100%;
-    box-sizing: border-box;
-}
 
-.text {
-    min-height: 300px;
-    max-height: 100%;
-    box-sizing: border-box;
-}
-
-.gallery {
-    grid-area: gallery;
-}
-
-.gallery img {
-    max-height: 18em;
-    max-width: 45%;
-    padding: 0.1em;
-}
+/* edit mode */
 
 .editable {
     height: 100%;
@@ -79,40 +118,35 @@ button.delete:hover {
 }
 
 
-/* The Modal (background) */
+/* info line */
 
-.modal {
-    display: none;
-    /* Hidden by default */
+.info {
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
+    color: white;
+    font-size: 0.75em;
+    padding-left: 145px;
 }
 
+.info>.content {
+    position: relative;
+    float: left;
+    width: 80%;
+}
 
-/* Modal Content/Box */
+.info>.content * {
+    margin: 3px;
+}
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 40%;
-    /* Could be more or less, depending on screen size */
-    text-align: center;
-    padding: 50px 0px;
+.info i {
+    margin-top: 3px;
+}
+
+.info i:hover {
+    color: black;
 }

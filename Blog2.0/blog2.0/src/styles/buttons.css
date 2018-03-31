@@ -52,9 +52,17 @@ button.action:hover span:after {
     height: 25px;
     padding: 0px;
     /* fonts */
-    font-size: 0.8em;
+    font-size: 0.9em;
     /* effects */
     transition: all 0.5s ease 0s;
+}
+
+.modal-btn {
+    font-size: 0.6em;
+}
+
+.long-btn {
+    width: 130px;
 }
 
 button.sm-btn:hover {
