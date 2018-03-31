@@ -104,13 +104,12 @@ export class PostSingleComponent implements OnInit {
     this.closeModal();
   }
   
-  denyLeavingEdition() {
-    this.editmodeService.editModeOn();
-    this.closeModal();
-  }
-  
   closeModal() {
     $('#warning-modal').css({ display: "none" });
+  }
+
+  closeInfo(){
+    $('#leaving-edit-info').css({ display: "none" });    
   }
 
   // mapping methods

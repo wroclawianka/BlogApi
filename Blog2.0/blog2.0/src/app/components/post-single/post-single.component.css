@@ -140,3 +140,37 @@ button.delete:hover {
     text-align: center;
     padding: 50px 30px;
 }
+
+
+/* info line */
+
+.info {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 0.75em;
+    padding-left: 145px;
+}
+
+.info>.content {
+    position: relative;
+    float: left;
+    width: 80%;
+}
+
+.info>.content * {
+    margin: 3px;
+}
+
+.info i {
+    margin-top: 3px;
+}
+
+.info i:hover {
+    color: black;
+}

@@ -177,3 +177,12 @@ a {
 .editMode.enabled {
     color: #2196F3;
 }
+
+.leaving-editmode {
+    background-color: darkred;
+    color: white;
+    position: absolute;
+    top: 0;
+    width: 100vp;
+    z-index: 100;
+}
