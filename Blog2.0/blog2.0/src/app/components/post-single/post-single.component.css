@@ -62,9 +62,11 @@
 /* gallery */
 
 .gallery img {
-    max-height: 18em;
-    max-width: 45%;
     padding: 0.1em;
+    margin: 0 2px;
+    object-fit: cover;
+    width: 330px;
+    height: 330px;
 }
 
 
