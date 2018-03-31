@@ -12,6 +12,7 @@
             <img src="{{post.mainPicture.url}}" alt="{{post.mainPicture.title}}">
         </div>
         <div class="gallery center">
+            <h3>Gallery</h3>
             <img *ngFor="let picture of post.pictures" class="" src="{{picture.url}}" alt="{{picture.title}}">
         </div>
         <div *ngIf="this.editMode" class="special-buttons">
