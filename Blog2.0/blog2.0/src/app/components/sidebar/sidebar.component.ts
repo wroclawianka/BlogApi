@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Reference } from './reference.model';
 import { Picture } from './picture.model';
 
@@ -8,7 +8,7 @@ import { Picture } from './picture.model';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  
+  widthOfChange: number = 1000;
   aboutMeHeader = "About me";
   aboutMeContent = `Welcome to my blog template project. 
   This page is created for my self-learning purposes. 
@@ -36,4 +36,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
   }
 
+  isLowerSchema() {
+    return window.innerWidth <= this.widthOfChange;
+  }
 }

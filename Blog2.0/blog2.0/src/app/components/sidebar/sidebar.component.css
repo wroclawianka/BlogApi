@@ -13,20 +13,20 @@
     line-height: 1.8em;
 }
 
-.links {
+.link {
     color: rgb(99, 93, 93);
     font-size: 83%;
-    padding-bottom: 1em;
+    padding-bottom: 0.2em;
     transition: all 0.5s ease 0s;
 }
 
-.links:hover {
+.link:hover {
     color: black;
     transform: scale(1.03);
     transition: all 0.5s ease 0s;
 }
 
-.links a {
+.link a {
     text-decoration: none;
     color: inherit;
 }
@@ -37,4 +37,34 @@
 
 .img-small {
     height: 7em;
+}
+
+
+/* grid */
+
+.down {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: [col1-start] auto [col2-start] auto [col2-end];
+    grid-template-rows: [row1-start] auto [row2-start] auto [row3-start] auto [row3-end];
+}
+
+.down>.content {
+    grid-column: col2-start / col2-end;
+    grid-row: row2-start / row3-end;
+}
+
+.down>.avatar {
+    grid-column: col1-start;
+    grid-row: row1-start / row3-start;
+}
+
+.down>.header {
+    grid-column: col2-start / col2-end;
+    grid-row: row1-start;
+}
+
+.down>.links {
+    grid-column: col1-start;
+    grid-row: row3-start / row3-end;
 }

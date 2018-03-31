@@ -1,11 +1,19 @@
-<div class="about-me">
-    <img class="img-circle img-small" src="{{authorPicture.url}}" alt="{{authorPicture.title}}">
-    <p class="header">{{aboutMeHeader | uppercase}}</p>
-    <p class="content" [innerHTML]=aboutMeContent></p>
-    <div class="links" *ngFor="let ref of references">
-        <a href="{{ref.url}}" target="_blank">
-            <i class="{{ref.icon}}" aria-hidden="true"></i>
-            <span>{{ref.text}}</span>
-        </a>
+<div class="about-me" [class.down]="isLowerSchema()">
+    <div class="avatar">
+        <img class="img-circle img-small" src="{{authorPicture.url}}" alt="{{authorPicture.title}}">
+    </div>
+    <div class="header">
+        <p class="">{{aboutMeHeader | uppercase}}</p>
+    </div>
+    <div class="content">
+        <p class="" [innerHTML]=aboutMeContent></p>
+    </div>
+    <div class="links">
+        <div class="link" *ngFor="let ref of references">
+            <a href="{{ref.url}}" target="_blank">
+                <i class="{{ref.icon}}" aria-hidden="true"></i>
+                <span>{{ref.text}}</span>
+            </a>
+        </div>
     </div>
 </div>
