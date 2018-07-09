@@ -1,5 +1,6 @@
 
-# [Prague with my eyes](http://dorotazelga.aspnet.pl/)
+# [Prague with my eyes](http://blog.dorotazelga.aspnet.pl/)
+
 Project of simple lifestyle and travel blog created for Angular and TypeScript learning. 
 
 ## Local version
