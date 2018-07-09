@@ -1,7 +1,20 @@
 
-# [Prague with my eyes](http://blog.dorotazelga.aspnet.pl/)
+<p align="center">
+  <img src="https://github.com/unrealdst/BlogApi/blob/master/Blog2.0/blog2.0/angular.png" height="150px"/>
+</p>
 
-Project of simple lifestyle and travel blog created for Angular and TypeScript learning. 
+# [Prague with my eyes](http://blog.dorotazelga.aspnet.pl/)
+ Project of simple lifestyle and travel blog created for Angular and TypeScript learning. Click Edit Mode to check additional features.
+ 
+ Details:
+   - Technologies: Angular 5, TypeScript, CSS Grid
+   - Date: Mar 2018
+
+
+<p align="center">
+    <img width="500px" src="https://github.com/unrealdst/BlogApi/blob/master/Blog2.0/blog2.0/blog.png"/>
+</p>
+
 
 ## Local version
 ### Development server
