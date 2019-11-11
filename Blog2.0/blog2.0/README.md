@@ -1,4 +1,4 @@
-# [Prague with my eyes]
+# Prague with my eyes
    - :mega: template of lifestyle and travel blog written by scratch. Click Edit Mode to check additional features.
    - :wrench: Angular 5, TypeScript, CSS Grid
    - :date: Mar 2018
